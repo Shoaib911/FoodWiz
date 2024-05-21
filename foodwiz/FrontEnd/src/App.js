@@ -21,10 +21,15 @@ const AppContent = () => {
       {!shouldHideNavbar && <Navbar />}
       <div className="pages">
         <Routes>
+          {/* Route for Home component */}
           <Route path="/" element={<Home />} />
+
+          {/* Routes for demo pages */}
           <Route path="/PantryChefDemo" element={<PantryDemo />} />
           <Route path="/MealPlanDemo" element={<MealPlanDemo />} />
           <Route path="/MacrosDemo" element={<MacrosDemo />} />
+
+          {/* Other routes */}
           <Route path="/Blog" element={<Blog />} />
           <Route path="/AboutUs" element={<About />} />
           <Route path="/Login" element={<Login />} />
