@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../style/Login.css'; // Ensure to create and style this CSS file
 
-const Login = () => {
+const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
+    // Dummy authentication logic
+    if (email === 'shoaibaltaf200@gmail.com' && password === '12345678') {
+      setIsAuthenticated(true);
+      navigate('/PantryChef');
+    } else {
+      alert('Invalid email or password');
+    }
   };
 
   return (

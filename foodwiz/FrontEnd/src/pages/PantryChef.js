@@ -1,10 +1,16 @@
+import React from 'react';
+import Sidebar from '../components/Sidebar';
+
 const PantryChef = () => {
-    return (
-      <div>
-        <h2>Pantary Chef  page</h2>
-        
+  return (
+    <div>
+      <Sidebar />
+      <div className="pantry-chef-content">
+        <h2>PantryChef Page</h2>
+        {/* Add your PantryChef content here */}
       </div>
-    );
-  };
-  
-  export default PantryChef;
+    </div>
+  );
+};
+
+export default PantryChef;
