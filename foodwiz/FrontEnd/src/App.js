@@ -10,6 +10,7 @@ import MealPlanDemo from './pages/Demo/MealPlanChefDemo';
 import PantryDemo from './pages/Demo/PantryChefDemo';
 import Blog from './pages/Blog';
 import About from './pages/AboutUs';
+import Footer from './components/Footer';
 
 const AppContent = ({ isAuthenticated, setIsAuthenticated }) => {
   const location = useLocation();
@@ -36,6 +37,7 @@ const AppContent = ({ isAuthenticated, setIsAuthenticated }) => {
           />
         </Routes>
       </div>
+      <Footer />
     </div>
   );
 };

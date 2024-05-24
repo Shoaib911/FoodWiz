@@ -2,14 +2,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../style/Home.css'; // Ensure you create and style this CSS file
 
+
 const Home = () => {
   return (
     <div className="home">
       <header className="hero">
         <div className="hero-content">
-          <h1>Welcome to FoodWiz</h1>
-          <p>Your AI-powered personal chef, ready to revolutionize your cooking experience.</p>
-          <Link to="/Register" className="cta-button">Get Started</Link>
+          <div className="hero-text">
+            <h1>Never Worry About<br />What's for <span className="highlight">Dinner Again!</span></h1>
+            <p>Say goodbye to boring meals, with AI-powered recipe recommendations, meal plans creation and more... 100,000+ dinners saved so far.</p>
+            <div className="app-buttons">
+              <a href="#" className="app-store-button">
+                <img src="path-to-appstore-logo.png" alt="App Store" />
+              </a>
+              <a href="#" className="play-store-button">
+                <img src="path-to-playstore-logo.png" alt="Play Store" />
+              </a>
+            </div>
+            <Link to="/Register" className="cta-button">Get Started for free</Link>
+          </div>
+          <div className="hero-image">
+            <img src="path-to-your-hero-image.png" alt="Hero" />
+          </div>
         </div>
       </header>
       
@@ -17,24 +31,36 @@ const Home = () => {
         <h2>Our Features</h2>
         <div className="feature-cards">
           <div className="feature-card">
-            <img src="path-to-pantrychef-image.jpg" alt="PantryChef" />
-            <h3>PantryChef</h3>
-            <p>Create recipes based on the ingredients you already have.</p>
-            <Link to="/pantrychef-demo" className="cta-button">Demo</Link>
+            <img src="Pantryimg.png" alt="PantryChef" />
+            <div className="feature-content">
+              <h3>PantryChef</h3>
+              <p>Discover the power of cooking with what you already have with PantryChef. Simply input the ingredients in your pantry and let our app generate a delicious recipe for you.</p>
+              <p>Say goodbye to wasted food and money. Start cooking smarter with PantryChef today!</p>
+              <Link to="/PantryChefDemo" className="cta-button">Discover PantryChef</Link>
+            </div>
           </div>
-          
+
           <div className="feature-card">
+            
+            <div className="feature-content">
+              <h3>MacrosChef</h3>
+              <p>MacrosChef is the perfect tool for anyone looking to hit their macronutrient goals while satisfying their taste buds.</p>
+              <p>Generate customized recipes based on your specific macronutrient goals and dietary restrictions.</p>
+              <p>Say goodbye to the guesswork of meal preparation and enjoy perfectly balanced, nutritious meals every day with MacrosChef.</p>
+              <Link to="/MacrosDemo" className="cta-button">Discover MacrosChef</Link>
+            </div>
             <img src="path-to-macroschef-image.jpg" alt="MacrosChef" />
-            <h3>MacrosChef</h3>
-            <p>Generate recipes tailored to your macronutrient goals.</p>
-            <Link to="/macroschef-demo" className="cta-button">Demo</Link>
           </div>
           
           <div className="feature-card">
             <img src="path-to-mealplanchef-image.jpg" alt="MealPlanChef" />
-            <h3>MealPlanChef</h3>
-            <p>Create personalized meal plans effortlessly.</p>
-            <Link to="/mealplanchef-demo" className="cta-button">Demo</Link>
+            <div className="feature-content">
+              <h3>MealPlanChef</h3>
+              <p>MealPlanChef is the ultimate meal planning solution for anyone looking to achieve their fitness goals while enjoying delicious, nutritious meals.</p>
+              <p>With its customization features, you can build a meal plan that fits your specific fitness goals and dietary requirements, whether it's for a day, a week, or even a month.</p>
+              <p>Say goodbye to the hassle of meal planning and enjoy perfectly balanced meals that support your health and wellness goals. Get started with MealPlanChef today!</p>
+              <Link to="/MealPlanDemo" className="cta-button">Discover MealPlan Chef</Link>
+            </div>
           </div>
         </div>
       </section>
