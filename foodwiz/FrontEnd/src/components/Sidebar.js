@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "../style/Sidebar.css" // Import the CSS for styling
+import "../style/Sidebar.css"; // Import the CSS for styling
 
 const Sidebar = () => {
   return (
@@ -14,7 +14,7 @@ const Sidebar = () => {
       <nav className="sidebar-nav">
         <ul>
           <li>
-            <Link to="/PantryChefDemo">PantryChef</Link>
+            <Link to="//PantryChef">PantryChef</Link>
           </li>
           <li>
             <Link to="/MacrosDemo">MacrosChef</Link>
@@ -24,6 +24,7 @@ const Sidebar = () => {
           </li>
         </ul>
       </nav>
+      
     </div>
   );
 };

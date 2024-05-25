@@ -5,9 +5,9 @@ import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import PantryChef from './pages/PantryChef';
-import MacrosDemo from './pages/Demo/MacrosChefDemo';
-import MealPlanDemo from './pages/Demo/MealPlanChefDemo';
-import PantryDemo from './pages/Demo/PantryChefDemo';
+import MacrosDemo from './Demos/MacrosChefDemo';
+import MealPlanDemo from './Demos/MealPlanChefDemo';
+import PantryDemo from './Demos/PantryChefDemo';
 import Blog from './pages/Blog';
 import About from './pages/AboutUs';
 import Footer from './components/Footer';
@@ -17,7 +17,9 @@ const AppContent = ({ isAuthenticated, setIsAuthenticated }) => {
   const hideNavbarRoutes = ['/Login', '/Register','/PantryChef'];
 
   const shouldHideNavbar = hideNavbarRoutes.some(route => location.pathname.startsWith(route));
+  const hideFooterRoutes = ['/Login', '/Register','/PantryChef'];
 
+  const shouldHideFooter = hideFooterRoutes.some(route => location.pathname.startsWith(route));
   return (
     <div className="App">
       {!shouldHideNavbar && <Navbar />}
@@ -37,7 +39,7 @@ const AppContent = ({ isAuthenticated, setIsAuthenticated }) => {
           />
         </Routes>
       </div>
-      <Footer />
+      {!shouldHideFooter && <Footer />}
     </div>
   );
 };
