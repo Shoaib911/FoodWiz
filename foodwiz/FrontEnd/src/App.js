@@ -5,19 +5,21 @@ import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import PantryChef from './pages/PantryChef';
+import MasterChef from './pages/MasterChef';
+import MacrosChef from './pages/MacrosChef';
 import MacrosDemo from './Demos/MacrosChefDemo';
-import MealPlanDemo from './Demos/MealPlanChefDemo';
-import PantryDemo from './Demos/PantryChefDemo';
+import MasterDemo from './Demos/MasterChefDemo';
+import PantryDemo from './Demos/PantryDemo';
 import Blog from './pages/Blog';
 import About from './pages/AboutUs';
 import Footer from './components/Footer';
 
 const AppContent = ({ isAuthenticated, setIsAuthenticated }) => {
   const location = useLocation();
-  const hideNavbarRoutes = ['/Login', '/Register','/PantryChef'];
+  const hideNavbarRoutes = ['/Login', '/Register','/PantryChef','/MasterChef','/MacrosChef'];
 
   const shouldHideNavbar = hideNavbarRoutes.some(route => location.pathname.startsWith(route));
-  const hideFooterRoutes = ['/Login', '/Register','/PantryChef'];
+  const hideFooterRoutes = ['/Login', '/Register','/PantryChef','/MasterChef','/MacrosChef'];
 
   const shouldHideFooter = hideFooterRoutes.some(route => location.pathname.startsWith(route));
   return (
@@ -26,8 +28,8 @@ const AppContent = ({ isAuthenticated, setIsAuthenticated }) => {
       <div className="pages">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/PantryChefDemo" element={<PantryDemo />} />
-          <Route path="/MealPlanDemo" element={<MealPlanDemo />} />
+          <Route path="/PantryDemo" element={<PantryDemo />} />
+          <Route path="/MasterDemo" element={<MasterDemo />} />
           <Route path="/MacrosDemo" element={<MacrosDemo />} />
           <Route path="/Blog" element={<Blog />} />
           <Route path="/AboutUs" element={<About />} />
@@ -37,6 +39,8 @@ const AppContent = ({ isAuthenticated, setIsAuthenticated }) => {
             path="/PantryChef" 
             element={isAuthenticated ? <PantryChef /> : <Navigate to="/Login" />} 
           />
+          <Route path='/MasterChef' element={<MasterChef />}/>
+          <Route path='/MacrosChef' element={<MacrosChef />}/>
         </Routes>
       </div>
       {!shouldHideFooter && <Footer />}

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import logo from '../assets/images/logo.png';
 import '../style/Navbar.css'; // Ensure you have this CSS file for styling
 
 const Navbar = () => {
@@ -14,7 +15,7 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar">
           <Link to="/" className="logo">
-            <img src="path-to-your-logo.png" alt="Logo" className="logo-image" />
+            <img src={logo} alt="Logo" className="logo-image" />
             <h1>FoodWiz</h1>
           </Link>
           <nav className="nav-links">
@@ -22,8 +23,8 @@ const Navbar = () => {
               <span className="dropdown-toggle">Features</span>
               {dropdownOpen && (
                 <div className="dropdown-menu">
-                  <Link to="/PantryChefDemo" className="dropdown-item">PantryChef</Link>
-                  <Link to="/MealPlanDemo" className="dropdown-item">MealPlanChef</Link>
+                  <Link to="/PantryDemo" className="dropdown-item">PantryChef</Link>
+                  <Link to="/MasterDemo" className="dropdown-item">MasterChef</Link>
                   <Link to="/MacrosDemo" className="dropdown-item">MacrosChef</Link>
                 </div>
               )}

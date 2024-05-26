@@ -24,52 +24,47 @@ const Register = () => {
 
   return (
     <div className="register-container">
-      <h2>Register</h2>
+      <h2>Create an account</h2>
+      <button className="google-signin">Sign in with Google</button>
+      <p>or continue with email</p>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="username">Username:</label>
-          <input 
-            type="text" 
-            id="username" 
-            value={username} 
-            onChange={handleUsernameChange} 
-            required 
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email Address</label>
           <input 
             type="email" 
             id="email" 
             value={email} 
             onChange={handleEmailChange} 
+            placeholder="your@email.com"
             required 
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password</label>
           <input 
             type="password" 
             id="password" 
             value={password} 
             onChange={handlePasswordChange} 
+            placeholder="Please ensure to enter at least 6 characters"
             required 
           />
         </div>
         <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <label htmlFor="confirmPassword">Repeat password</label>
           <input 
             type="password" 
             id="confirmPassword" 
             value={confirmPassword} 
             onChange={handleConfirmPasswordChange} 
+            placeholder="Type your password again. Please ensure the passwords match"
             required 
           />
         </div>
-        <button type="submit">Register</button>
+        <button type="submit" className="get-started">Get started</button>
       </form>
       <p>
-        Already have an account? <Link to="/Login">Login here</Link>
+        Already have an account? <Link to="/Login">Sign In</Link>
       </p>
     </div>
   );

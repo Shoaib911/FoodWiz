@@ -1,0 +1,92 @@
+.container{
+    display: flex;
+}
+.about{
+    float: left;
+    width: 50%;
+    height: 50%;
+
+}
+.about h1{
+    width: 80%;
+    font-size: 4.5em;
+    line-height: 65px;
+}
+
+.about p{
+    text-align: start;
+}
+.about_img{
+    width: 50%;
+}
+.primary-text{
+    color: green;
+}
+.Steps{
+    margin-top: 100px;
+
+}
+.step-container{
+    display: flex;
+}
+.step-no{
+    width: 30px;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: .75rem;
+    background-color: aqua;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.text_box{
+    width: 50%;
+    float: left;
+}
+.text_box p{
+    text-align: start;
+}
+.step-description{
+    font-weight: bold;
+}
+
+.input-div{
+    width:50%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.input-div input select {
+    width: 150px;
+}
+.input-div button{
+    width: 150px;
+    
+}
+
+.Output {
+    margin: 40px auto;
+    padding: 20px;
+    width: 60%;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .Output h3 {
+    margin-bottom: 20px;
+  }
+  
+  .Output ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+    text-align: left;
+  }
+  
+  .Output ol li {
+    margin-bottom: 10px;
+  }
+  

@@ -1,4 +1,4 @@
-const MealPlan = () => {
+const MasterChef = () => {
     return (
       <div>
         <h2>MealPlan page</h2>
@@ -7,4 +7,4 @@ const MealPlan = () => {
     );
   };
   
-  export default MealPlan;
+  export default MasterChef;

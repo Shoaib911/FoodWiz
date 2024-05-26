@@ -17,10 +17,10 @@ const Sidebar = () => {
             <Link to="//PantryChef">PantryChef</Link>
           </li>
           <li>
-            <Link to="/MacrosDemo">MacrosChef</Link>
+            <Link to="/MacrosChef">MacrosChef</Link>
           </li>
           <li>
-            <Link to="/MealPlanDemo">MealPlanChef</Link>
+            <Link to="/MasterChef">MealPlanChef</Link>
           </li>
         </ul>
       </nav>

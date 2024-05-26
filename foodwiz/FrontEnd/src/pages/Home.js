@@ -55,11 +55,11 @@ const Home = () => {
           <div className="feature-card">
             <img src="path-to-mealplanchef-image.jpg" alt="MealPlanChef" />
             <div className="feature-content">
-              <h3>MealPlanChef</h3>
-              <p>MealPlanChef is the ultimate meal planning solution for anyone looking to achieve their fitness goals while enjoying delicious, nutritious meals.</p>
-              <p>With its customization features, you can build a meal plan that fits your specific fitness goals and dietary requirements, whether it's for a day, a week, or even a month.</p>
-              <p>Say goodbye to the hassle of meal planning and enjoy perfectly balanced meals that support your health and wellness goals. Get started with MealPlanChef today!</p>
-              <Link to="/MealPlanDemo" className="cta-button">Discover MealPlan Chef</Link>
+              <h3>MasterChef</h3>
+              <p>Masterchef is the ultimate cooking companion for anyone looking to elevate their culinary skills.</p>
+              <p>Say goodbye to endless Googling for the perfect recipe. Masterchef’s helps you find the specific recipe you’re looking for, modify it based on your dietary requirements, or generate a new recipe based on your cravings. With Masterchef, you'll have access to personalized, healthy, and delicious recipes that fit your lifestyle.</p>
+              <p>Cook smarter, not harder with Masterchef.</p>
+              <Link to="/MasterDemo" className="cta-button">Discover Master Chef</Link>
             </div>
           </div>
         </div>
