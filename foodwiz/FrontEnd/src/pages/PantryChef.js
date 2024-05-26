@@ -17,6 +17,7 @@ const PantryChef = () => {
     slowCooker: false,
     pressureCooker: false,
   });
+  const [showOutput, setShowOutput] = useState(false);
   const [time, setTime] = useState(5);
   const [chefLevel, setChefLevel] = useState('Novice');
 
@@ -31,6 +32,9 @@ const PantryChef = () => {
       setIngredients([...ingredients, ingredient]);
       e.target.elements.ingredient.value = '';
     }
+  };
+  const handleGenerateRecipe = () => {
+    setShowOutput(true);
   };
 
   return (
@@ -87,8 +91,36 @@ const PantryChef = () => {
               <option value="Expert">Expert</option>
             </select>
           </div>
-          
+          <button onClick={handleGenerateRecipe}>Generate Recipe</button>
+
+          {showOutput && (
+        <div className="Output">
+            <h3>Cheese and Avocado Sandwich</h3>
+
+            <h2>Ingredients</h2>
+            <ol>
+              <li>Cheese</li>
+              <li>Avocado</li>
+              <li>Bread</li>
+              <li>Butter</li>
+              <li>Spicy Pepper</li>
+            </ol>
+
+            <h2>Instructions</h2>
+            <ol>
+              <li>Toast the bread slices in a toaster.</li>
+              <li>Spread butter on one side of each bread slice.</li>
+              <li>Slice the avocado and the spicy pepper.</li>
+              <li>Grate the cheese.</li>
+              <li>Layer the avocado, spicy pepper, and cheese on one bread slice.</li>
+              <li>Cover with the other bread slice.</li>
+              <li>Cut the sandwich diagonally.</li>
+              <li>Serve and enjoy!</li>
+            </ol>
+          </div>
+        )}
         </form>
+        
       </div>
     </div>
   );

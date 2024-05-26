@@ -1,7 +1,6 @@
 import '../style/MasterDemo.css';
 const MacrosDemo = () => {
     return (
-      
          <div>
         
         <div className="container">

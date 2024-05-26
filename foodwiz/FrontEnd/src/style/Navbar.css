@@ -1,7 +1,9 @@
 header {
-    background: #f8f9fa;
+    background:white;
     padding: 1rem 0;
-    border-bottom: 1px solid #e0e0e0;
+    margin: 0;
+    height: fit-content;
+    
   }
   
   .container {
@@ -25,9 +27,10 @@ header {
   }
   
   .logo-image {
-    width: 40px; /* Adjust size as needed */
-    height: 40px;
-    margin-right: 10px;
+    margin-right: -20px;
+    width: 100%; /* Adjust size as needed */
+    height: 100%;
+    
   }
   
   .nav-links {
@@ -44,15 +47,18 @@ header {
   }
   
   .nav-links a:hover {
-    color: #007bff;
+    color: #e6be58;
   }
-  
+  .Primary-text{
+    color: #F2B418;
+  }
   .dropdown {
     position: relative;
     cursor: pointer;
   }
   
   .dropdown-toggle {
+    margin: 0;
     text-decoration: none;
     color: #333;
     font-size: 1rem;
@@ -78,13 +84,13 @@ header {
   }
   
   .dropdown-item:hover {
-    background: #f0f0f0;
-    color: #007bff;
+    background: #eebc3e;
+    color:#333;
   }
   
   .login-button {
     text-decoration: none;
-    background: #007bff;
+    background: #f3c34a;
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -92,6 +98,6 @@ header {
   }
   
   .login-button:hover {
-    background: #0056b3;
+    background: #F2B418;
   }
   

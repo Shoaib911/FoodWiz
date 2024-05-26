@@ -1,76 +1,74 @@
 .footer {
-    background-color: #f8f8f8;
-    padding: 40px 20px;
-    text-align: left;
-    color: #333;
-  }
+  background-color: #f8f8f8;
+  padding: 20px 10px;
+  color: #333;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items to the top */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  flex: 1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+}
+
+.logo-image {
+  margin-right: -20px;
+  width: 100%; /* Adjust size as needed */
+  height: 100%;
   
-  .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .footer-logo {
-    flex: 1;
-    min-width: 200px;
-    margin-bottom: 20px;
-  }
-  
-  .footer-logo img {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .footer-logo h1 {
-    margin: 10px 0;
-    font-size: 1.5em;
-    color: #333;
-  }
-  
-  .footer-logo p {
-    margin: 5px 0;
-    font-size: 0.9em;
-    color: #777;
-  }
-  
-  .footer-links {
-    flex: 3;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .footer-column {
-    flex: 1;
-    min-width: 150px;
-    margin-bottom: 20px;
-  }
-  
-  .footer-column h3 {
-    font-size: 1.1em;
-    margin-bottom: 15px;
-    color: #333;
-  }
-  
-  .footer-column ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .footer-column ul li {
-    margin-bottom: 10px;
-  }
-  
-  .footer-column ul li a {
-    color: #777;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .footer-column ul li a:hover {
-    color: #1aac83;
-  }
-  
+}
+
+.footer-logo p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #777;
+}
+
+.footer-links {
+  flex: 3;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-column {
+  padding-top: 20px;
+  margin-left: 20px;
+  min-width: 150px;
+}
+
+.footer-column h3 {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: #777;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #baa758;
+}

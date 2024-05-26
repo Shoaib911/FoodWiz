@@ -20,7 +20,7 @@ const Sidebar = () => {
             <Link to="/MacrosChef">MacrosChef</Link>
           </li>
           <li>
-            <Link to="/MasterChef">MealPlanChef</Link>
+            <Link to="/MasterChef">MasterChef</Link>
           </li>
         </ul>
       </nav>
