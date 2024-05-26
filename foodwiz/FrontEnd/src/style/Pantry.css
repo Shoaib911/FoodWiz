@@ -1,8 +1,9 @@
-.pantry-chef-page {
+.chef-page {
+
     display: flex;
   }
   
-  .pantry-chef-content {
+  .chef-content {
     margin-left: 250px; /* Margin to the left to avoid overlap with the fixed sidebar */
     padding: 20px;
     width: calc(100% - 250px); /* Adjust width to fit the remaining space */
@@ -20,7 +21,6 @@
     background: #fff; /* White background for form sections */
     padding: 20px; /* Padding inside form sections */
     border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   }
   
   label {

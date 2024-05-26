@@ -19,7 +19,6 @@ const PantryChef = () => {
   });
   const [time, setTime] = useState(5);
   const [chefLevel, setChefLevel] = useState('Novice');
-  const [chefMode, setChefMode] = useState('Gourmet Mode');
 
   const handleToolChange = (tool) => {
     setTools((prevTools) => ({ ...prevTools, [tool]: !prevTools[tool] }));
@@ -35,9 +34,9 @@ const PantryChef = () => {
   };
 
   return (
-    <div className="pantry-chef-page">
+    <div className="chef-page">
       <Sidebar />
-      <div className="pantry-chef-content">
+      <div className="chef-content">
         <h2>PantryChef Page</h2>
         <form onSubmit={handleAddIngredient}>
           <div className="form-section">
@@ -88,13 +87,7 @@ const PantryChef = () => {
               <option value="Expert">Expert</option>
             </select>
           </div>
-          <div className="form-section">
-            <label>Select the desired Chef Mode</label>
-            <select value={chefMode} onChange={(e) => setChefMode(e.target.value)}>
-              <option value="Gourmet Mode">Gourmet Mode</option>
-              <option value="All-In Mode">All-In Mode</option>
-            </select>
-          </div>
+          
         </form>
       </div>
     </div>

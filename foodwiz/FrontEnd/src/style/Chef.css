@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.chef-page{
+display: flex;
+}
+.chef-content {
+    
+    margin-left:200px;
+    color: rgb(97, 94, 94);
+    padding: 20px;
+    max-width: calc(100% - 250px);
+    overflow-y: auto;
+    background-color: #f9f9f9;  
+  }
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.title{
+    color:rgb(163, 214, 113);
+    padding-left: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add space between form elements */
+  }
+
+.form-section{
+    max-width: 70%;
+    margin-left: 15%;
+}
+.inputs{
+    display: block;
+}
+.input-group{
+    display: contents;
+    border: 1px solid #ccc;
+}
+
+.input-group input{
+    border: 1px solid #ccc;
+    width: 150px;
+    margin-right: 15px;   
+}
+
