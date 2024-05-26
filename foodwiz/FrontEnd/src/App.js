@@ -37,8 +37,8 @@ const AppContent = ({ isAuthenticated, setIsAuthenticated }) => {
           <Route path="/Register" element={<Register />} />
           <Route 
             path="/PantryChef" 
-            element={isAuthenticated ? <PantryChef /> : <Navigate to="/Login" />} 
-          />
+            element=/*{isAuthenticated ?*/ {<PantryChef />}/* : <Navigate to="/Login" *//>
+          
           <Route path='/MasterChef' element={<MasterChef />}/>
           <Route path='/MacrosChef' element={<MacrosChef />}/>
         </Routes>

@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import '../style/MasterDemo.css';
+import '../style/Demo.css';
 const MasterDemo = () => {
     return (
       <div>

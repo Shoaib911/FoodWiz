@@ -1,54 +1,120 @@
-*{
+* {
     margin: 0;
     padding: 0;
-}
-
-.chef-page{
-display: flex;
-}
-.chef-content {
-    
-    margin-left:200px;
+    box-sizing: border-box;
+  }
+  
+  .chef-page {
+    display: flex;
+  }
+  
+  .chef-content {
+    margin-left: 200px;
     color: rgb(97, 94, 94);
     padding: 20px;
     max-width: calc(100% - 250px);
     overflow-y: auto;
-    background-color: #f9f9f9;  
+    background-color: #f9f9f9;
   }
-
-.header{
+  
+  .header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
     margin-left: 10px;
-}
-
-.title{
-    color:rgb(163, 214, 113);
+  }
+  
+  .title {
+    color: #e8bb49;
     padding-left: 20px;
-}
-
-form {
+  }
+  
+  form {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Add space between form elements */
+    gap: 20px;
   }
-
-.form-section{
+  
+  .form-section {
     max-width: 70%;
     margin-left: 15%;
+  }
+  .step-no{
+    width: 30px;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: .5rem;
+    background-color: #e8bb49;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .text_box{
+    padding-left: 20px;
 }
-.inputs{
+  .inputs {
     display: block;
-}
-.input-group{
-    display: contents;
+  }
+  
+  .input-container {
+    margin-bottom: 15px;
+  }
+  
+  .input-group {
+    width: 175px;
+    display: flex;
+    align-items: center;
     border: 1px solid #ccc;
-}
-
-.input-group input{
+    padding: 5px;
+    border-radius: 4px;
+  }
+  
+  .input-group input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    margin-right: 10px;
+    width: 100px;
+  }
+  
+  .input-group span {
+    margin-left: 5px;
+  }
+  
+  select {
+    padding: 5px;
     border: 1px solid #ccc;
-    width: 150px;
-    margin-right: 15px;   
-}
-
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #e8bb49;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  button:hover {
+    background-color: #ba9435;
+  }
+  
+  .output {
+    margin-top: 20px;
+  }
+  
+  .output h3 {
+    margin-bottom: 10px;
+  }
+  
+  .output ol {
+    margin-left: 20px;
+  }
+  
+  .output li {
+    margin-bottom: 10px;
+  }
+  

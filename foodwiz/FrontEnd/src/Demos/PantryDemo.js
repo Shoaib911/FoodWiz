@@ -1,5 +1,5 @@
 
-import '../style/MasterDemo.css';
+import '../style/Demo.css';
 const PantryDemo = () => {
     return (
       

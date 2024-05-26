@@ -14,25 +14,33 @@
 }
 
 .sidebar-header {
+  display: flex;
   text-align: center;
   margin-bottom: 20px;
 }
 
-.logo-image {
-  max-width: 100px;
-  margin-bottom: 10px;
+.Logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+}
+
+.Logo-image {
+  margin-right: -10px;
+  width: 50px; /* Adjust size as needed */
+  height: 50px;
+  
+}
+.Logo h1{
+  font-size: 1.5rem;
 }
 .sidebar-nav{
-  float:inline-start;
-}
-
-.sidebar-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.sidebar-nav li {
-  margin: 10px 0;
+  
+  display: grid;
+  width: 150px;
+  padding-left: 10px;
+  row-gap: 10px;
 }
 
 .sidebar-nav a {
@@ -41,7 +49,9 @@
 }
 
 .sidebar-nav a:hover {
-  text-decoration: underline;
+    background-color: #eed79d;
+    border-radius: 5px;
+
 }
 
 

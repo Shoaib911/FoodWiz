@@ -1,28 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/images/logo.png'
 import "../style/Sidebar.css"; // Import the CSS for styling
 
 const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-        <Link to="/" className="logo-link">
-          <img src='path-to-your-logo.png' alt="Logo" className="logo-image" />
-          <h2>FoodWiz</h2>
-        </Link>
+      <Link to="/" className="Logo">
+            <img src={logo} alt="Logo" className="Logo-image" />
+            <h1>Food<span className='Primary-text'>Wiz</span></h1>
+          </Link>
       </div>
       <nav className="sidebar-nav">
-        <ul>
-          <li>
+        
             <Link to="//PantryChef">PantryChef</Link>
-          </li>
-          <li>
+          
             <Link to="/MacrosChef">MacrosChef</Link>
-          </li>
-          <li>
+          
             <Link to="/MasterChef">MasterChef</Link>
-          </li>
-        </ul>
+          
+        
       </nav>
       
     </div>

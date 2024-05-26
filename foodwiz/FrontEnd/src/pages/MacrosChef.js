@@ -4,10 +4,24 @@ import Sidebar from '../components/Sidebar';
 
 const MacrosChef = () => {
   const [showOutput, setShowOutput] = useState(false);
+  const [carbs, setCarbs] = useState('');
+  const [protein, setProtein] = useState('');
+  const [fat, setFat] = useState('');
+  const [meal, setMeal] = useState('');
 
   const handleGenerateRecipe = (e) => {
     e.preventDefault(); // Prevent form submission
     setShowOutput(true);
+  };
+
+  const handleAddDetails = () => {
+    // Save the input values to variables or state
+    console.log(`Carbs: ${carbs}, Protein: ${protein}, Fat: ${fat}, Meal: ${meal}`);
+    // Reset input values if needed
+    // setCarbs('');
+    // setProtein('');
+    // setFat('');
+    // setMeal('');
   };
 
   return (
@@ -30,21 +44,21 @@ const MacrosChef = () => {
               <div className="input-container">
                 <label>Carbs:</label>
                 <div className="input-group">
-                  <input type="text" placeholder="20" />
+                  <input type="text" placeholder="20" value={carbs} onChange={(e) => setCarbs(e.target.value)} />
                   <span>grams</span>
                 </div>
               </div>
               <div className="input-container">
                 <label>Protein:</label>
                 <div className="input-group">
-                  <input type="text" placeholder="20" />
+                  <input type="text" placeholder="20" value={protein} onChange={(e) => setProtein(e.target.value)} />
                   <span>grams</span>
                 </div>
               </div>
               <div className="input-container">
                 <label>Fat:</label>
                 <div className="input-group">
-                  <input type="text" placeholder="20" />
+                  <input type="text" placeholder="20" value={fat} onChange={(e) => setFat(e.target.value)} />
                   <span>grams</span>
                 </div>
               </div>
@@ -59,7 +73,7 @@ const MacrosChef = () => {
               </div>
             </div>
             <div className="inputs">
-              <select>
+              <select value={meal} onChange={(e) => setMeal(e.target.value)}>
                 <option value="Breakfast">Breakfast</option>
                 <option value="Lunch">Lunch</option>
                 <option value="Dinner">Dinner</option>
@@ -76,6 +90,7 @@ const MacrosChef = () => {
             </div>
             <div className="inputs">
               <button onClick={handleGenerateRecipe}>Generate Recipe</button>
+              <button type="button" onClick={handleAddDetails}>Add Details</button>
             </div>
           </div>
         </form>

@@ -20,7 +20,7 @@
     width: 50%;
 }
 .primary-text{
-    color: green;
+    color: #e8bb49;
 }
 .Steps{
     margin-top: 100px;
@@ -36,7 +36,7 @@
     align-items: center;
     text-align: center;
     border-radius: .75rem;
-    background-color: aqua;
+    background-color: #e8bb49;
     font-size: 1.5rem;
     font-weight: bold;
 }
