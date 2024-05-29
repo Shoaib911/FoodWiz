@@ -1,25 +1,25 @@
 .container{
     display: flex;
 }
-.about{
+.About{
     float: left;
     width: 50%;
     height: 50%;
 
 }
-.about h1{
+.About h1{
     width: 80%;
     font-size: 4.5em;
     line-height: 65px;
 }
 
-.about p{
+.About p{
     text-align: start;
 }
 .about_img{
     width: 50%;
 }
-.primary-text{
+.primary_text{
     color: #e8bb49;
 }
 .Steps{

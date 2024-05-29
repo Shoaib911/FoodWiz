@@ -1,33 +1,51 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../style/Register.css'; // Ensure to create and style this CSS file
+import axios from 'axios';
+import '../style/Register.css';
 
 const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleUsernameChange = (e) => setUsername(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle registration logic here
-    console.log('Username:', username);
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Confirm Password:', confirmPassword);
+    if (password !== confirmPassword) {
+      setMessage('Passwords do not match');
+      return;
+    }
+    try {
+      const response = await axios.post('http://localhost:4000/api/users/register', { username, email, password });
+      setMessage(response.data.message);
+    } catch (error) {
+      setMessage(error.response.data.message);
+    }
   };
 
   return (
     <div className="register-container">
       <h2>Create an account</h2>
+      {message && <p>{message}</p>}
       <button className="google-signin">Sign in with Google</button>
       <p>or continue with email</p>
       <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input 
+            type="text" 
+            id="username" 
+            value={username} 
+            onChange={handleUsernameChange} 
+            required 
+          />
+        </div>
         <div className="form-group">
           <label htmlFor="email">Email Address</label>
           <input 
@@ -35,7 +53,6 @@ const Register = () => {
             id="email" 
             value={email} 
             onChange={handleEmailChange} 
-            placeholder="your@email.com"
             required 
           />
         </div>
@@ -46,7 +63,6 @@ const Register = () => {
             id="password" 
             value={password} 
             onChange={handlePasswordChange} 
-            placeholder="Please ensure to enter at least 6 characters"
             required 
           />
         </div>
@@ -57,7 +73,6 @@ const Register = () => {
             id="confirmPassword" 
             value={confirmPassword} 
             onChange={handleConfirmPasswordChange} 
-            placeholder="Type your password again. Please ensure the passwords match"
             required 
           />
         </div>

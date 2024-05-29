@@ -1,4 +1,4 @@
-
+import pantry from "../assets/images/pantry.png";
 import '../style/Demo.css';
 const PantryDemo = () => {
     return (
@@ -6,18 +6,19 @@ const PantryDemo = () => {
          <div>
         
         <div className="container">
-          <div className="about">
-            <p className="primary-text">PantryChef</p>
+          <div className="About">
+            <p className="primary_text">PantryChef</p>
+            <br></br>
             <h1>
                 Where Ingredients Turn into
-              <span className="primary-text">Masterpieces!</span>
+              <span className="primary_text">Masterpieces!</span>
             </h1>
             <p>
             Have a stocked pantry but no recipe inspiration? PantryChef is the kitchen genie that transforms your basic ingredients into gourmet delights. No more dinner dilemmas, just delectable dishes!
             </p>
           </div>
           <div className="about_image">
-          <img src="Pantry.png" alt="Pantrychef" />
+          <img src={pantry} alt="Pantrychef" />
           </div>
         </div>
         
@@ -38,6 +39,7 @@ const PantryDemo = () => {
             </div>
             <div className="input-div">
               <input type="text" placeholder="Search ingredients"></input>
+              
             </div>
           </div>
 

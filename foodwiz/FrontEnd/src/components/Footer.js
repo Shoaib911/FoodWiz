@@ -9,8 +9,8 @@ const Footer = () => {
       <div className="footer-container">
 
         <div className="footer-logo">
-          <Link to="/" className="logo">
-            <img src={logo} alt="Logo" className="logo-image" />
+          <Link to="/" className="Logo">
+            <img src={logo} alt="Logo" className="Logo_image" />
             <h1>Food<span className='Primary-text'>Wiz</span></h1>
           </Link>
           <p>Your AI Powered Digital Chef</p>

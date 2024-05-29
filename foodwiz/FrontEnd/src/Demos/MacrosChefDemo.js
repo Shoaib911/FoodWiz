@@ -1,14 +1,16 @@
 import '../style/Demo.css';
+import macro from "../assets/images/macros.png";
 const MacrosDemo = () => {
     return (
          <div>
         
         <div className="container">
-          <div className="about">
-            <p className="primary-text">MacrosChef</p>
+          <div className="About">
+            <p className="primary_text">MacrosChef</p>
+            <br></br>
             <h1>
                Hit Your Macros
-              <span className="primary-text">The Simple Way!</span>
+              <span className="primary_text">The Simple Way!</span>
             </h1>
             <p>
             When you struggle to reach your macros, MacrosChef is here to help. You can generate recipes that are specifically designed to help you achieve your macronutrient goals. No more guessing or struggling to find the right balance!
@@ -16,7 +18,7 @@ const MacrosDemo = () => {
             </p>
           </div>
           <div className="about_image">
-          <img src="Macros.png" alt="MacrosChef" />
+          <img src={macro} alt="MacrosChef" />
           </div>
         </div>
         

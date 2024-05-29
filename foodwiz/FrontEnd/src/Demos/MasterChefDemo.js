@@ -1,15 +1,16 @@
-import Navbar from "../components/Navbar";
+import masterimg from "../assets/images/Master.png";
 import '../style/Demo.css';
 const MasterDemo = () => {
     return (
       <div>
         
         <div className="container">
-          <div className="about">
-            <p className="primary-text">MasterChef</p>
+          <div className="About">
+            <p className="primary_text">MasterChef</p>
+            <br></br>
             <h1>
               Unleash Culinary Creativity
-              <span className="primary-text">Beyond Imagination!</span>
+              <span className="primary_text">Beyond Imagination!</span>
             </h1>
             <p>
               MasterChef is a cooking companion like no other. No more scrolling
@@ -18,7 +19,7 @@ const MasterDemo = () => {
             </p>
           </div>
           <div className="about_image">
-          <img src="Master.png" alt="MasterChef" />
+          <img src={masterimg} alt="MasterChef" />
           </div>
         </div>
         
