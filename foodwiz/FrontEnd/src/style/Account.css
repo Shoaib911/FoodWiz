@@ -1,4 +1,4 @@
-.register-container {
+.account-container {
   max-width: 400px;
   margin: 50px auto;
   padding: 20px;
@@ -8,15 +8,17 @@
   text-align: center;
 }
 
-.register-container h2 {
+
+.account-container h2 {
   margin-bottom: 20px;
+  color: #6d6c6c;
 }
 
 .google-signin {
   width: 100%;
   padding: 10px;
-  background-color: white;
-  color: black;
+  background-color: #edc55e;
+  color: white;
   border: 1px solid #ddd;
   border-radius: 5px;
   cursor: pointer;
@@ -25,24 +27,26 @@
 }
 
 .google-signin:hover {
-  background-color: #f1f1f1;
+  background-color: #c59c35;
 }
 
 form p {
   margin: 10px 0;
 }
 
-.form-group {
-  margin-bottom: 15px;
+.form_group {
   text-align: left;
+  padding: 10px 0px 0px 0px; 
 }
 
-.form-group label {
+.form_group label {
   display: block;
   margin-bottom: 5px;
+  color: #555353;
 }
 
-.form-group input {
+
+.form_group input {
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
@@ -53,7 +57,7 @@ form p {
 .get-started {
   width: 100%;
   padding: 10px;
-  background-color: #28a745;
+  background-color: #e8bb49;
   color: white;
   border: none;
   border-radius: 5px;
@@ -62,15 +66,15 @@ form p {
 }
 
 .get-started:hover {
-  background-color: #218838;
+  background-color: #ab8320;
 }
 
 p {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 p a {
-  color: #007bff;
+  color: #e8bb49;
   text-decoration: none;
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../style/Login.css';
+import '../style/Account.css';
 
 const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
@@ -26,11 +26,11 @@ const Login = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <div className="login-container">
+    <div className="account-container">
       <h2>Login</h2>
       {message && <p>{message}</p>}
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+        <div className="form_group">
           <label htmlFor="email">Email:</label>
           <input 
             type="email" 
@@ -40,7 +40,7 @@ const Login = ({ setIsAuthenticated }) => {
             required 
           />
         </div>
-        <div className="form-group">
+        <div className="form_group">
           <label htmlFor="password">Password:</label>
           <input 
             type="password" 

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import '../style/Register.css';
+import '../style/Account.css';
+
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -30,13 +31,18 @@ const Register = () => {
   };
 
   return (
-    <div className="register-container">
+
+    <div className="account-container">
       <h2>Create an account</h2>
+
       {message && <p>{message}</p>}
       <button className="google-signin">Sign in with Google</button>
+
       <p>or continue with email</p>
+
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+
+        <div className="form_group">
           <label htmlFor="username">Username</label>
           <input 
             type="text" 
@@ -46,7 +52,9 @@ const Register = () => {
             required 
           />
         </div>
-        <div className="form-group">
+
+
+        <div className="form_group">
           <label htmlFor="email">Email Address</label>
           <input 
             type="email" 
@@ -56,7 +64,9 @@ const Register = () => {
             required 
           />
         </div>
-        <div className="form-group">
+
+
+        <div className="form_group">
           <label htmlFor="password">Password</label>
           <input 
             type="password" 
@@ -66,7 +76,9 @@ const Register = () => {
             required 
           />
         </div>
-        <div className="form-group">
+
+
+        <div className="form_group">
           <label htmlFor="confirmPassword">Repeat password</label>
           <input 
             type="password" 
@@ -76,8 +88,11 @@ const Register = () => {
             required 
           />
         </div>
+
+
         <button type="submit" className="get-started">Get started</button>
       </form>
+
       <p>
         Already have an account? <Link to="/Login">Sign In</Link>
       </p>
