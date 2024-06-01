@@ -4,7 +4,7 @@ from schemas import RecipeRequest, RecipeResponse
 
 app = FastAPI()
 
-@app.post("/recommend_recipe/", response_model=RecipeResponse)
+@app.post("/recommend_recipe_endpoint/", response_model=RecipeResponse)
 async def recommend_recipe_endpoint(recipe: RecipeRequest):
     try:
         recommendations = recommend_recipe(
