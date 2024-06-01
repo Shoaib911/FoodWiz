@@ -1,12 +1,14 @@
+from typing import Any, Dict
 from fastapi import FastAPI, HTTPException
 from recommendation import recommend_recipe
 from schemas import RecipeRequest, RecipeResponse
 
 app = FastAPI()
 
-@app.post("/recommend_recipe_endpoint/", response_model=RecipeResponse)
-async def recommend_recipe_endpoint(recipe: RecipeRequest):
+@app.post("/recommend_recipe")
+async def recommendRecipe(recipe: RecipeRequest):
     try:
+        print(recipe)
         recommendations = recommend_recipe(
             recipe.tags, recipe.ingredients, recipe.minutes, recipe.name, recipe.nutrition
         )
