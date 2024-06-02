@@ -88,15 +88,15 @@ const MacrosChef = () => {
                 Generate your Recipe.
               </div>
             </div>
-            <div className="inputs">
-              <button onClick={handleGenerateRecipe}>Generate Recipe</button>
+            <div className="Outputs-button">
               <button type="button" onClick={handleAddDetails}>Add Details</button>
+              <button onClick={handleGenerateRecipe}>Generate Recipe</button>
             </div>
           </div>
         </form>
 
         {showOutput && (
-          <div className="output">
+          <div className="Output">
             <h3>Avocado Toast with Scrambled Tofu</h3>
             <h2>Ingredients</h2>
             <ol>
