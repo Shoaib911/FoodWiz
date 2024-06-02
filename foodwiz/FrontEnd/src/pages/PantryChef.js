@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Sidebar from '../components/Sidebar';
 import '../style/Chef.css';
 
 const PantryChef = () => {
   const [ingredients, setIngredients] = useState([]);
+  const [ingredientInput, setIngredientInput] = useState("");
   const [meal, setMeal] = useState('Lunch');
   const [tools, setTools] = useState({
     stoveTop: false,
@@ -20,6 +22,7 @@ const PantryChef = () => {
   const [showOutput, setShowOutput] = useState(false);
   const [time, setTime] = useState(5);
   const [chefLevel, setChefLevel] = useState('Novice');
+  const [generatedRecipe, setGeneratedRecipe] = useState(null);
 
   const handleToolChange = (tool) => {
     setTools((prevTools) => ({ ...prevTools, [tool]: !prevTools[tool] }));
@@ -27,100 +30,185 @@ const PantryChef = () => {
 
   const handleAddIngredient = (e) => {
     e.preventDefault();
-    const ingredient = e.target.elements.ingredient.value;
-    if (ingredient) {
-      setIngredients([...ingredients, ingredient]);
-      e.target.elements.ingredient.value = '';
+    if (ingredientInput) {
+      setIngredients([...ingredients, ingredientInput]);
+      setIngredientInput('');
     }
   };
-  const handleGenerateRecipe = () => {
-    setShowOutput(true);
+
+  const handleGenerateRecipe = async (e) => {
+    e.preventDefault();
+
+    if (ingredients.length === 0 || !time) {
+      console.error('Ingredients and time are required');
+      return;
+    }
+
+    const selectedTools = Object.keys(tools).filter(tool => tools[tool]);
+
+    const requestData = {
+      tags: meal,
+      ingredients: ingredients.join(", "),
+      name: "Example",
+      minutes: time,
+      nutrition: "Example"
+    };
+
+    try {
+      const response = await axios.post('http://localhost:4000/api/recipes/recommend', requestData);
+      console.log(response.data);  // Debugging line
+      if (response.data && response.data.length > 0) {
+        setGeneratedRecipe(response.data[0]);
+        setShowOutput(true);
+      } else {
+        console.error('No recipe data received');
+      }
+    } catch (error) {
+      console.error('Error generating recipe:', error);
+    }
   };
 
   return (
     <div className="chef-page">
       <Sidebar />
+
       <div className="chef-content">
-        <h2>PantryChef Page</h2>
-        <form onSubmit={handleAddIngredient}>
+        <div className="header">
+          <div className="title">Pantry Chef</div>
+          <div className="account">Sign in</div>
+        </div>
+
+        <form onSubmit={handleGenerateRecipe}>
           <div className="form-section">
-            <label>What ingredients do you have?</label>
-            <input type="text" name="ingredient" placeholder="Search or add ingredient" />
-            <button type="submit">Add Ingredient</button>
-          </div>
-          <div className="form-section">
-            <label>What meal do you want to cook?</label>
-            <select value={meal} onChange={(e) => setMeal(e.target.value)}>
-              <option value="Breakfast">Breakfast</option>
-              <option value="Lunch">Lunch</option>
-              <option value="Dinner">Dinner</option>
-            </select>
-          </div>
-          <div className="form-section">
-            <label>What kitchen tools do you have?</label>
-            <div className="checkbox-container">
-              {Object.keys(tools).map((tool) => (
-                <div key={tool}>
-                  <input
-                    type="checkbox"
-                    id={tool}
-                    checked={tools[tool]}
-                    onChange={() => handleToolChange(tool)}
-                  />
-                  <label htmlFor={tool}>{tool.replace(/([A-Z])/g, ' $1').trim()}</label>
-                </div>
-              ))}
+            <div className="text">
+              <div className="step-no">1</div>
+              <div className="text-description">
+                What ingredients do you have?
+              </div>
+            </div>
+            <div className="Inputs">
+              <input
+                className="detail-input"
+                type="text"
+                placeholder="Search or add ingredient"
+                value={ingredientInput}
+                onChange={(e) => setIngredientInput(e.target.value)}
+              />
+              <button type="button" onClick={handleAddIngredient}>Add Ingredient</button>
+              <ul>
+                {ingredients.map((ingredient, index) => (
+                  <li key={index}>{ingredient}</li>
+                ))}
+              </ul>
             </div>
           </div>
-          <div className="form-section">
-            <label>How much time do you have?</label>
-            <input
-              type="range"
-              min="1"
-              max="60"
-              value={time}
-              onChange={(e) => setTime(e.target.value)}
-            />
-            <span>{time} minutes</span>
-          </div>
-          <div className="form-section">
-            <label>Are you a good chef?</label>
-            <select value={chefLevel} onChange={(e) => setChefLevel(e.target.value)}>
-              <option value="Novice">Novice</option>
-              <option value="Intermediate">Intermediate</option>
-              <option value="Expert">Expert</option>
-            </select>
-          </div>
-          <button onClick={handleGenerateRecipe}>Generate Recipe</button>
 
-          {showOutput && (
-        <div className="Output">
-            <h3>Cheese and Avocado Sandwich</h3>
+          <div className="form-section">
+            <div className="text">
+              <div className="step-no">2</div>
+              <div className="text-description">
+                What meal do you want to cook?
+              </div>
+            </div>
+            <div className="Inputs">
+              <select value={meal} onChange={(e) => setMeal(e.target.value)}>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="form-section">
+            <div className="text">
+              <div className="step-no">3</div>
+              <div className="text-description">
+                What kitchen tools do you have?
+              </div>
+            </div>
+            <div className="Inputs">
+              <div className="checkbox-container">
+                {Object.keys(tools).map((tool) => (
+                  <div key={tool}>
+                    <input
+                      type="checkbox"
+                      id={tool}
+                      checked={tools[tool]}
+                      onChange={() => handleToolChange(tool)}
+                    />
+                    <label htmlFor={tool}>{tool.replace(/([A-Z])/g, ' $1').trim()}</label>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="form-section">
+            <div className="text">
+              <div className="step-no">4</div>
+              <div className="text-description">
+                How much time do you have?
+              </div>
+            </div>
+            <div className="Inputs">
+              <input
+                className="detail-input"
+                type="number"
+                placeholder="5 minutes"
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="form-section">
+            <div className="text">
+              <div className="step-no">5</div>
+              <div className="text-description">
+                Are you a good chef?
+              </div>
+            </div>
+            <div className="Inputs">
+              <select value={chefLevel} onChange={(e) => setChefLevel(e.target.value)}>
+                <option value="Novice">Novice</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Expert">Expert</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="form-section">
+            <div className="text">
+              <div className="step-no">6</div>
+              <div className="text-description">
+                Generate your Recipe.
+              </div>
+            </div>
+            <div className="Outputs-button">
+              <button type="submit">Generate Recipe</button>
+            </div>
+          </div>
+        </form>
+
+        {showOutput && generatedRecipe && (
+          <div className="Output">
+            <h3>{generatedRecipe.name}</h3>
 
             <h2>Ingredients</h2>
             <ol>
-              <li>Cheese</li>
-              <li>Avocado</li>
-              <li>Bread</li>
-              <li>Butter</li>
-              <li>Spicy Pepper</li>
+              {generatedRecipe.ingredients?.replace(/[\[\]']+/g, '').split(',').map((ingredient, index) => (
+                <li key={index}>{ingredient.trim()}</li>
+              ))}
             </ol>
 
             <h2>Instructions</h2>
             <ol>
-              <li>Toast the bread slices in a toaster.</li>
-              <li>Spread butter on one side of each bread slice.</li>
-              <li>Slice the avocado and the spicy pepper.</li>
-              <li>Grate the cheese.</li>
-              <li>Layer the avocado, spicy pepper, and cheese on one bread slice.</li>
-              <li>Cover with the other bread slice.</li>
-              <li>Cut the sandwich diagonally.</li>
-              <li>Serve and enjoy!</li>
+              {generatedRecipe.steps?.replace(/[\[\]']+/g, '').split(',').map((step, index) => (
+                <li key={index}>{step.trim()}</li>
+              ))}
             </ol>
           </div>
         )}
-        </form>
-        
       </div>
     </div>
   );

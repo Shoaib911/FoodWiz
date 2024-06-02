@@ -1,27 +1,46 @@
 import React, { useState } from "react";
+import axios from "axios";
 import '../style/Chef.css';
 import Sidebar from '../components/Sidebar';
 
 const MacrosChef = () => {
   const [showOutput, setShowOutput] = useState(false);
-  const [carbs, setCarbs] = useState('');
+  const [calories, setCalories] = useState('');
   const [protein, setProtein] = useState('');
   const [fat, setFat] = useState('');
   const [meal, setMeal] = useState('');
+  const [generatedRecipe, setGeneratedRecipe] = useState(null);
 
-  const handleGenerateRecipe = (e) => {
+  const handleGenerateRecipe = async (e) => {
     e.preventDefault(); // Prevent form submission
-    setShowOutput(true);
-  };
 
-  const handleAddDetails = () => {
-    // Save the input values to variables or state
-    console.log(`Carbs: ${carbs}, Protein: ${protein}, Fat: ${fat}, Meal: ${meal}`);
-    // Reset input values if needed
-    // setCarbs('');
-    // setProtein('');
-    // setFat('');
-    // setMeal('');
+    // Validate required fields
+    if (!calories || !protein || !fat || !meal) {
+      console.error('All fields are required');
+      return;
+    }
+
+    // Prepare data to be sent to the backend
+    const requestData = {
+      tags: meal,
+      ingredients: "Example", // You can customize this as needed
+      minutes: "30", // You can customize this as needed
+      name: "Recipe Name", // You can customize this as needed
+      nutrition: `[${calories},${fat},0,0,${protein},0]`
+    };
+
+    try {
+      const response = await axios.post('http://localhost:4000/api/recipes/recommend', requestData);
+      console.log(response.data);  // Debugging line
+      if (response.data && response.data.length > 0) {
+        setGeneratedRecipe(response.data[0]);
+        setShowOutput(true);
+      } else {
+        console.error('No recipe data received');
+      }
+    } catch (error) {
+      console.error('Error generating recipe:', error);
+    }
   };
 
   return (
@@ -42,9 +61,9 @@ const MacrosChef = () => {
             </div>
             <div className="inputs">
               <div className="input-container">
-                <label>Carbs:</label>
+                <label>Calories:</label>
                 <div className="input-group">
-                  <input type="text" placeholder="20" value={carbs} onChange={(e) => setCarbs(e.target.value)} />
+                  <input type="text" placeholder="20" value={calories} onChange={(e) => setCalories(e.target.value)} />
                   <span>grams</span>
                 </div>
               </div>
@@ -89,41 +108,27 @@ const MacrosChef = () => {
               </div>
             </div>
             <div className="Outputs-button">
-              <button type="button" onClick={handleAddDetails}>Add Details</button>
               <button onClick={handleGenerateRecipe}>Generate Recipe</button>
             </div>
           </div>
         </form>
 
-        {showOutput && (
+        {showOutput && generatedRecipe && (
           <div className="Output">
-            <h3>Avocado Toast with Scrambled Tofu</h3>
+            <h3>{generatedRecipe.name}</h3>
             <h2>Ingredients</h2>
             <ol>
-              <li>2 slices whole grain bread</li>
-              <li>150 grams firm tofu</li>
-              <li>1 medium avocado</li>
-              <li>2 teaspoons olive oil</li>
-              <li>Spices and seasonings to taste</li>
+              {generatedRecipe.ingredients?.replace(/[\[\]']+/g, '').split(',').map((ingredient, index) => (
+                <li key={index}>{ingredient.trim()}</li>
+              ))}
             </ol>
             <h2>Instructions</h2>
             <ol>
-              <li>Toast the bread slices in a toaster until crispy.</li>
-              <li>In a frying pan, heat some oil and add the crumbled tofu.</li>
-              <li>Cook the tofu on medium heat for 3-5 minutes, until lightly browned.</li>
-              <li>Add the spices and seasonings of your choice to the tofu, such as turmeric, paprika, salt, and pepper.</li>
-              <li>Continue cooking the tofu for another 2-3 minutes, until well seasoned and slightly crispy.</li>
-              <li>Meanwhile, slice the avocado and mash it with a fork in a small bowl.</li>
-              <li>Spread the mashed avocado on the toasted bread slices.</li>
-              <li>Serve and enjoy!</li>
+              {generatedRecipe.steps?.replace(/[\[\]']+/g, '').split(',').map((step, index) => (
+                <li key={index}>{step.trim()}</li>
+              ))}
             </ol>
-            <h2>Macros:</h2>
-            <ol>
-              <li>Total Calories: 351kcal</li>
-              <li>Carbs: 34 grams</li>
-              <li>Proteins: 20 grams</li>
-              <li>Fats: 15 grams</li>
-            </ol>
+            
           </div>
         )}
       </div>
