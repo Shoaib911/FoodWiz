@@ -26,9 +26,9 @@ const Navbar = () => {
               <span className="dropdown-toggle">Features</span>
               {dropdownOpen && (
                 <div className="dropdown-menu">
-                  <Link to="/PantryDemo" className="dropdown-item">PantryChef</Link>
-                  <Link to="/MasterDemo" className="dropdown-item">MasterChef</Link>
-                  <Link to="/MacrosDemo" className="dropdown-item">MacrosChef</Link>
+                  <Link to="/PantryDemo" className="dropdown_item">PantryChef</Link>
+                  <Link to="/MasterDemo" className="dropdown_item">MasterChef</Link>
+                  <Link to="/MacrosDemo" className="dropdown_item">MacrosChef</Link>
                 </div>
               )}
             </div>

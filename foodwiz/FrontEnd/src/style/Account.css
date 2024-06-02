@@ -1,0 +1,83 @@
+.account-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+
+.account-container h2 {
+  margin-bottom: 20px;
+  color: #6d6c6c;
+}
+
+.google-signin {
+  width: 100%;
+  padding: 10px;
+  background-color: #edc55e;
+  color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.google-signin:hover {
+  background-color: #c59c35;
+}
+
+form p {
+  margin: 10px 0;
+}
+
+.form_group {
+  text-align: left;
+  padding: 10px 0px 0px 0px; 
+}
+
+.form_group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555353;
+}
+
+
+.form_group input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.get-started {
+  width: 100%;
+  padding: 10px;
+  background-color: #e8bb49;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.get-started:hover {
+  background-color: #ab8320;
+}
+
+p {
+  margin-top: 10px;
+}
+
+p a {
+  color: #e8bb49;
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}

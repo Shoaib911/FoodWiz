@@ -2,6 +2,7 @@
   background-color: #f8f8f8;
   padding: 20px 10px;
   color: #333;
+  
 }
 
 .footer-container {
@@ -16,16 +17,16 @@
   flex: 1;
 }
 
-.logo {
+.Logo {
   display: flex;
   align-items: center;
   text-decoration: none;
   color: #333;
 }
 
-.logo-image {
+.Logo_image {
   margin-right: -20px;
-  width: 100%; /* Adjust size as needed */
+  width: 100px; /* Adjust size as needed */
   height: 100%;
   
 }

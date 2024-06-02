@@ -4,33 +4,33 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const recipeRoutes = require('./routes/recipeRoutes');
 
+const userRoutes = require('./routes/UserRoutes');
+const cors = require('cors');
 
+// Express app
+const app = express();
 
-//express app
-const app = express()
+// Middleware
+app.use(cors());
+app.use(express.json());
 app.use(bodyParser.json());
-//middleware
+app.use((req, res, next) => {
+    console.log(req.path, req.method);
+    next();
+});
 
-app.use(express.json())
-app.use((req, res, next)=>{
-    console.log(req.path,req.method)
-    next()
-})
-
-//routes
+// Routes
 app.use('/api/recipes', recipeRoutes);
+app.use('/api/users', userRoutes);
 
-//connect to db
+// Connect to the database
 mongoose.connect(process.env.MONGO_URI)
-.then(()=>{
-    //listen for requests
-    app.listen(process.env.PORT,()=> {
-        console.log("server is running on port",process.env.PORT)
+    .then(() => {
+        // Listen for requests
+        app.listen(process.env.PORT, () => {
+            console.log("Server is running on port", process.env.PORT);
+        });
     })
-})
-.catch((error)=>{
-    console.log(error)
-})
-
-
-process.env
+    .catch((error) => {
+        console.log(error);
+    });

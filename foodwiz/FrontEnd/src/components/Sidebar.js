@@ -14,7 +14,7 @@ const Sidebar = () => {
       </div>
       <nav className="sidebar-nav">
         
-            <Link to="//PantryChef">PantryChef</Link>
+            <Link to="/PantryChef">PantryChef</Link>
           
             <Link to="/MacrosChef">MacrosChef</Link>
           

@@ -1,25 +1,27 @@
 .container{
     display: flex;
 }
-.about{
+
+.About{
     float: left;
     width: 50%;
     height: 50%;
 
 }
-.about h1{
+.About h1{
     width: 80%;
     font-size: 4.5em;
     line-height: 65px;
 }
 
-.about p{
+.About p{
     text-align: start;
+    color: #949393;
 }
 .about_img{
     width: 50%;
 }
-.primary-text{
+.Primary_text{
     color: #e8bb49;
 }
 .Steps{
@@ -27,7 +29,9 @@
 
 }
 .step-container{
+    margin-left: 20px;
     display: flex;
+    height: 350px;
 }
 .step-no{
     width: 30px;
@@ -35,37 +39,135 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: .75rem;
-    background-color: #e8bb49;
+    border-radius: .5rem;
+    background-color: #f4be34;
     font-size: 1.5rem;
     font-weight: bold;
+    color: #949393;
 }
 .text_box{
     width: 50%;
     float: left;
+    padding-right: 30px;
 }
 .text_box p{
     text-align: start;
+    color: #949393;
 }
 .step-description{
     font-weight: bold;
+    font-size: 25px;
 }
 
-.input-div{
+.input-demo-div{
     width:50%;
-    justify-content: center;
-    align-items: center;
     text-align: center;
 }
-
-.input-div input select {
-    width: 150px;
+.input-wrapper {
+    margin : 20px 50px 0px 50px;
+    display: flex;
+    gap: 20px;
 }
-.input-div button{
-    width: 150px;
+
+.input-demo-div input select {
+    width: 100px;
+}
+.input-demo-div select{
+    height: 30px;
+    width :200px;
+}
+.input-demo-div button{
+    width: 100px;
     
 }
+.inputs{
+    align-items: start;
+    justify-content: left;
+}
+.input_container {
+    margin-bottom: 15px;
+    padding-left: 200px;
+    
+  }
+  .input_container label{
+    width: 50px;
+    color: #595757;
+  }
+  .input_group {
+    width: 175px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
+  }
+  
+  .input_group input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    margin-right: 10px;
+    width: 100px;
+  }
+  
+  .input_group span {
+    margin-left: 5px;
+  }
+.select-demo{
+    margin :100px;
+}
+.ingredient-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;   
+    justify-content: center;
+  }
 
+.ingredient{
+    border: 0.5px solid #b8b6b6;
+    height: min-content;
+    border-radius: 5px;
+}
+button.Add-button{
+    width: min-content;
+    background: #e8bb49;
+}
+button.delete-button{
+    width: min-content;
+    padding: 10px;
+    margin : 0px 0px 0px 10px;
+    background-color: white;
+    color: black;
+  }
+
+  .utensil-options {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin : 10px 10px 10px 40px;
+    width: 100%; /* Set a fixed width for the container */
+    flex-grow: 2; /* Allow the container to grow vertically */
+  }
+  
+  .utensil-options label {
+    color: #949393;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: calc(50% - 10px); /* Set width for each checkbox label, accounting for gap */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+button.output-button{
+    margin-top: 100px;
+    width: 180px;
+    background: #e8bb49;
+
+}
 .Output {
     margin: 40px auto;
     padding: 20px;

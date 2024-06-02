@@ -12,9 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.7.2",
+    "axios": "^1.7.2", // This line is from AI_module
+    "bcryptjs": "^2.4.3", // This line is from main
+    "cors": "^2.8.5", // This line is from main
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "mongoose": "^8.3.4"
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.0"
   }
 }

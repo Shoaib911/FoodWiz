@@ -28,8 +28,8 @@ const MasterChef = () => {
                 Inspire MasterChef with your tastes or with a specific recipe.
               </div>
             </div>
-            <div className="inputs">
-              <input type="text" placeholder="Recipe name" />
+            <div className="Inputs">
+              <input className= "detail-input" type="text" placeholder="Recipe name"/>
             </div>
           </div>
 
@@ -40,8 +40,8 @@ const MasterChef = () => {
                 Select the amount of servings.
               </div>
             </div>
-            <div className="inputs">
-              <input type="number" placeholder="Number of servings" />
+            <div className="Inputs">
+              <input className= "detail-input" type="number" placeholder="Number of servings" />
             </div>
           </div>
 
@@ -52,8 +52,8 @@ const MasterChef = () => {
                 Select how much time you have.
               </div>
             </div>
-            <div className="inputs">
-              <input type="text" placeholder="Time" />
+            <div className="Inputs">
+              <input className= "detail-input" type="text" placeholder="Time" />
             </div>
           </div>
 
@@ -64,8 +64,8 @@ const MasterChef = () => {
                 Select your skill level.
               </div>
             </div>
-            <div className="inputs">
-              <select>
+            <div className="Inputs">
+              <select className= "detail-input">
                 <option value="Novice">Novice</option>
                 <option value="Intermediate">Intermediate</option>
                 <option value="Expert">Expert</option>
@@ -80,13 +80,15 @@ const MasterChef = () => {
                 Generate your Recipe.
               </div>
             </div>
-            <div className="inputs">
+            <div className="Outputs-button">
+              
+              <button type="button" >Add Details</button>
               <button onClick={handleGenerateRecipe}>Generate Recipe</button>
             </div>
           </div>
           
           {showOutput && (
-            <div className="output">
+            <div className="Output">
               <h3>Beef Wellington</h3>
 
               <h2>Ingredients</h2>

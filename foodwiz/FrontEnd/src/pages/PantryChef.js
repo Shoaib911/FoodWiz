@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar';
-import '../style/Pantry.css';
+import '../style/Chef.css';
 
 const PantryChef = () => {
   const [ingredients, setIngredients] = useState([]);
