@@ -62,6 +62,8 @@
 .input-demo-div{
     width:50%;
     text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 .input-wrapper {
     margin : 20px 50px 0px 50px;
@@ -69,8 +71,9 @@
     gap: 20px;
 }
 
-.input-demo-div input select {
-    width: 100px;
+.input-demo-div input{
+    width: 150px;
+    height: 30px;
 }
 .input-demo-div select{
     height: 30px;
@@ -191,4 +194,61 @@ button.output-button{
   .Output ol li {
     margin-bottom: 10px;
   }
+
+
+  @media screen and (max-width: 600px) {
+.About{
+  width: 100%;
+  padding: 0 10px;
+}
+  .About h1{
+    padding-right: 10px;
+    max-width: 90%;
+    text-align: start;
+    font-size: 2.6rem;
+    line-height:55px;
+  }
+
+  .step-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .text_box{
+    height: 80%;
+    width: 100%;
+    margin: 20px 0;
+  }
+
+.input-demo-div{
+  width: 100%;
+  height: 4rem;
+  margin-bottom: 10px;
+}
+
+  .input-wrapper {
+    margin: 20px 0;
+    display: flex;
+    
+  }
+
+  .ingredient-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .select-demo {
+    width: 80%;
+    margin: 20px auto;
+  }
+  .utensil-options {
+    margin: 20px 10px;
+  }
+
+  .Output {
+    width: 90%;
+    margin: 20px auto;
+  }
+}
   

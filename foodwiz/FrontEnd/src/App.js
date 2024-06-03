@@ -14,6 +14,7 @@ import Blog from './pages/Blog';
 import About from './pages/AboutUs';
 import Footer from './components/Footer';
 
+
 const AppContent = ({ isAuthenticated, setIsAuthenticated }) => {
   const location = useLocation();
   const hideNavbarRoutes = ['/Login', '/Register','/PantryChef','/MasterChef','/MacrosChef'];

@@ -1,104 +1,160 @@
 header {
-    background:white;
-    padding: 1rem 0;
-    margin: 0;
-    height: fit-content;
-    
-  }
-  
+  background: #f9f5f5;
+  padding: 1rem 0;
+  margin: 0;
+  height: fit-content;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  position: relative;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+}
+
+.logo-image {
+  margin-right: 10px; /* Adjust size as needed */
+  width: 60px; /* Decrease logo size */
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  width: max-content;
+}
+
+.nav-links a:hover {
+  color: #f1af06;
+}
+
+.Primary-text {
+  color: #F2B418;
+}
+
+.dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-toggle {
+  margin: 0;
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+}
+
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #f9f5f5;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  border-radius: 10px;
+  display: none; /* Hide by default */
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex; /* Show on hover */
+}
+
+.dropdown_item {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #333;
+  white-space: nowrap;
+}
+
+.dropdown_item:hover {
+  background: #f9f5f5;
+  border-radius: 10px;
+}
+
+.login-button {
+  text-decoration: none;
+  background: #f3c34a;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.login-button:hover {
+  background: #F2B418;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
   .container {
+    align-items: flex-start;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+  flex-direction: column;
   }
-  
+
   .navbar {
-    display: flex;
-    align-items: center;
     width: 100%;
-    justify-content: space-between;
   }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .logo-image {
-    margin-right: -20px;
-    width: 100px; /* Adjust size as needed */
-    height: 100%;
-    
-  }
-  
+
   .nav-links {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    position: relative;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1rem;
-  }
-  
-  .nav-links a:hover {
-    color: #e6be58;
-  }
-  .Primary-text{
-    color: #F2B418;
-  }
-  .dropdown {
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .dropdown-toggle {
-    margin: 0;
-    text-decoration: none;
-    color: black;
-    font-size: 1rem;
-  }
-  
-  .dropdown-menu {
-    display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    border-radius: 10px;
+    gap: 1rem;
+    display: none;
+    width: 100%;
+    margin-top: 10px;
   }
-  
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: none;
+    display: flex; /* Show as column */
+  }
+
   .dropdown_item {
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    color: #333;
-    white-space: nowrap;
+    padding: 0.5rem 0;
   }
-  
-  .dropdown_item:hover {
-    background: #c8c5c5;
-    border-radius: 10px;
-  }
-  
+
   .login-button {
-    text-decoration: none;
-    background: #f3c34a;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-size: 1rem;
+    margin-top: 1rem;
   }
-  
-  .login-button:hover {
-    background: #F2B418;
+
+  .menu-icon {
+    display: block;
   }
-  
+}

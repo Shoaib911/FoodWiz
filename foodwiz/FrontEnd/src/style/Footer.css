@@ -1,5 +1,5 @@
 .footer {
-  background-color: #f8f8f8;
+  background-color: #f9f5f5;
   padding: 20px 10px;
   color: #333;
   
@@ -72,4 +72,32 @@
 
 .footer-column ul li a:hover {
   color: #baa758;
+}
+
+@media screen and (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .footer-column {
+    margin-left: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .footer-column h3 {
+    font-size: 1em;
+  }
+
+  .footer-column ul li {
+    margin-bottom: 5px;
+  }
 }
