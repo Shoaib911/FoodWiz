@@ -23,7 +23,7 @@ const Register = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:4000/api/users/register', { username, email, password });
+      const response = await axios.post('http://40.88.8.211:4000/api/users/register', { username, email, password });
       setMessage(response.data.message);
     } catch (error) {
       setMessage(error.response.data.message);

@@ -15,7 +15,7 @@ const Login = ({ setIsAuthenticated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:4000/api/users/login', { email, password });
+      const response = await axios.post('http://40.88.8.211:4000/api/users/login', { email, password });
       localStorage.setItem('token', response.data.token);
       setIsAuthenticated(true);
       navigate('/PantryChef');

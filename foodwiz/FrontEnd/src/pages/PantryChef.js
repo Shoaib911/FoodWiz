@@ -55,7 +55,7 @@ const PantryChef = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:4000/api/recipes/recommend', requestData);
+      const response = await axios.post('http://40.88.8.211:4000/api/recipes/recommend', requestData);
       console.log(response.data);  // Debugging line
       if (response.data && response.data.length > 0) {
         setGeneratedRecipe(response.data[0]);
