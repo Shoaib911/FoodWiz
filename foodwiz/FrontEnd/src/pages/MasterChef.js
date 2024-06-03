@@ -36,9 +36,10 @@ const MasterChef = () => {
     };
 
     try {
+
       const response = await axios.post('http://localhost:4000/api/recipes/recommend', requestData);
       console.log(response.data); // Debugging line
-      // Assuming response.data is an array, take the first element
+    // Assuming response.data is an array, take the first element
       if (response.data && response.data.length > 0) {
         setGeneratedRecipe(response.data[0]);
         setShowOutput(true);
