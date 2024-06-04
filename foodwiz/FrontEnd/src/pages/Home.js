@@ -11,7 +11,7 @@ import '../style/Home.css'; // Ensure you create and style this CSS file
 const Home = () => {
   return (
     <div className='Home'>   
-        <div className="container">
+        <div className="Container">
           <div className="about">
             <span className="Primary-text">Meet FOODWIZ</span>
             <h1>
@@ -48,7 +48,7 @@ const Home = () => {
               <p>Discover the power of cooking with what you already have with PantryChef. Simply input the ingredients in your pantry and let our app generate a delicious recipe for you.</p>
               <p>Say goodbye to wasted food and money. Start cooking smarter with PantryChef today!</p>
               <br></br>
-              <Link to="/PantryChefDemo" className="cta-button">Discover PantryChef</Link>
+              <Link to="/PantryDemo" className="cta-button">Discover PantryChef</Link>
             </div>
           </div>
 
@@ -61,7 +61,7 @@ const Home = () => {
               <p>Generate customized recipes based on your specific macronutrient goals and dietary restrictions.</p>
               <p>Say goodbye to the guesswork of meal preparation and enjoy perfectly balanced, nutritious meals every day with MacrosChef.</p>
               <br></br>
-              <Link to="/MacrosDemo" className="cta-button">Discover MacrosChef</Link>
+              <Link to="/MacrosChefDemo" className="cta-button">Discover MacrosChef</Link>
             </div>
             <div className='image-div'>
                <img src={macro} alt="MacrosChef" />
@@ -81,7 +81,7 @@ const Home = () => {
                 <p>Say goodbye to endless Googling for the perfect recipe. Masterchef’s helps you find the specific recipe you’re looking for, modify it based on your dietary requirements, or generate a new recipe based on your cravings. With Masterchef, you'll have access to personalized, healthy, and delicious recipes that fit your lifestyle.</p>
                 <p>Cook smarter, not harder with Masterchef.</p>
                 <br></br>
-              <Link to="/MasterDemo" className="cta-button">Discover Master Chef</Link>
+              <Link to="/MasterChefDemo" className="cta-button">Discover Master Chef</Link>
             </div>
           </div>
         </div>

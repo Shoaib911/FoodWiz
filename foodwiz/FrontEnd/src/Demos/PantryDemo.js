@@ -31,7 +31,7 @@ const PantryDemo = () => {
             <br></br>
             <br></br>
             <h1>
-                Where Ingredients Turn into
+                Where Ingredients Turn into 
               <span className="Primary_text">Masterpieces!</span>
             </h1>
 

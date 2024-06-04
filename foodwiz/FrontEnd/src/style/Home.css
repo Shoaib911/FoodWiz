@@ -1,16 +1,16 @@
 .Home{
-background-color: white;
+background-color: #f9f5f5;
 }
 
-.container{
+.Container{
   display: flex;
-  background-color: rgb(255, 255, 255);
+  background-color: #f9f5f5;
   margin-bottom: 20px;
   padding-left: 50px;
   
 }
 .about{
-  background-color: white;
+  background-color:#f9f5f5;
   float: left;
   width: 50%;
   height: 50%;
@@ -56,7 +56,7 @@ background-color: white;
   font-weight: bold;
 }
 .features {
-  background-color: white;
+  background-color: #f9f5f5;
   padding: 50px 0;
   text-align: center;
 }
@@ -83,7 +83,7 @@ background-color: white;
 
 .feature-card {
   margin-top: 50px;
-  background: white;
+  background: #f9f5f5;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -124,12 +124,13 @@ background-color: white;
 }
 
 .feature-card p {
+
   font-size: 1em;
   margin-bottom: 10px;
 }
 
 .testimonials {
-  background: white;
+  background: #f9f5f5;
   padding: 50px 20px;
   text-align: center;
 }
@@ -154,4 +155,64 @@ background-color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   padding: 20px;
   max-width: 300px;
+}
+
+@media screen and (max-width: 600px) {
+
+  .Home{
+    width: 100%;
+    margin: 0;
+  }
+  .Container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+    margin: 0;
+  }
+  .about{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .about h1 {
+    font-size: 2.5em;
+    line-height: 40px;
+  }
+
+  .about p {
+    text-align: center;
+  }
+
+  .feature-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-card {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .feature-content {
+    text-align: center;
+    width: 100%;
+  }
+
+  .feature-content p {
+    text-align: center;
+  }
+
+  .image-div img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .testimonials-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testimonial {
+    max-width: 100%;
+  }
 }

@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useContext } from 'react';
+import axios from 'axios';
 import '../style/Chef.css';
 import Sidebar from '../components/Sidebar';
+import { UserContext } from '../components/UserContext'; // import the context
+import { useNavigate } from 'react-router-dom';
 
 const MacrosChef = () => {
   const [showOutput, setShowOutput] = useState(false);
@@ -10,6 +12,9 @@ const MacrosChef = () => {
   const [fat, setFat] = useState('');
   const [meal, setMeal] = useState('');
   const [generatedRecipe, setGeneratedRecipe] = useState(null);
+  const [showPopup, setShowPopup] = useState(false); // state for controlling the popup visibility
+  const { user, setUser } = useContext(UserContext); // use the context to get the user email
+  const navigate = useNavigate(); // hook for navigation
 
   const handleGenerateRecipe = async (e) => {
     e.preventDefault(); // Prevent form submission
@@ -43,23 +48,42 @@ const MacrosChef = () => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setUser(null);
+    navigate('/');
+  };
+
   return (
     <div className="chef-page">
       <Sidebar />
       <div className="chef-content">
         <div className="header">
           <div className="title">MacrosChef</div>
-          <div className="account">Sign in</div>
+          <div className="account">
+            <button onClick={() => setShowPopup(true)}>A</button>
+          </div>
         </div>
-        <form>
+
+        {showPopup && (
+          <div className="popup">
+            <div className="popup-content">
+              <span className="close" onClick={() => setShowPopup(false)}>&times;</span>
+              <p>Email: {user.email}</p>
+              <button onClick={handleLogout}>Logout</button>
+            </div>
+          </div>
+        )}
+
+        <form onSubmit={handleGenerateRecipe}>
           <div className="form-section">
             <div className="text">
-              <div className="step-no">1</div>
+              <div className="Step_no">1</div>
               <div className="text-description">
                 Select your target macronutrient you want to achieve.
               </div>
             </div>
-            <div className="inputs">
+            <div className="Inputs">
               <div className="input-container">
                 <label>Calories:</label>
                 <div className="input-group">
@@ -86,12 +110,12 @@ const MacrosChef = () => {
 
           <div className="form-section">
             <div className="text">
-              <div className="step-no">2</div>
+              <div className="Step_no">2</div>
               <div className="text-description">
                 Select what meal you want to cook.
               </div>
             </div>
-            <div className="inputs">
+            <div className="Inputs">
               <select value={meal} onChange={(e) => setMeal(e.target.value)}>
                 <option value="Breakfast">Breakfast</option>
                 <option value="Lunch">Lunch</option>
@@ -102,13 +126,13 @@ const MacrosChef = () => {
 
           <div className="form-section">
             <div className="text">
-              <div className="step-no">3</div>
+              <div className="Step_no">3</div>
               <div className="text-description">
                 Generate your Recipe.
               </div>
             </div>
             <div className="Outputs-button">
-              <button onClick={handleGenerateRecipe}>Generate Recipe</button>
+              <button type="submit">Generate Recipe</button>
             </div>
           </div>
         </form>
@@ -128,7 +152,6 @@ const MacrosChef = () => {
                 <li key={index}>{step.trim()}</li>
               ))}
             </ol>
-            
           </div>
         )}
       </div>

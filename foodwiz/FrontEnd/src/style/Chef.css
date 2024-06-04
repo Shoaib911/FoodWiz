@@ -6,6 +6,7 @@
   
   .chef-page {
     display: flex;
+    background-color: #f9f5f5;
   }
   
   .chef-content {
@@ -14,7 +15,7 @@
     padding: 20px;
     width: calc(100% - 250px);
     overflow-y: auto;
-    background-color: #f9f9f9;
+    background-color: #f9f5f5;
   }
   
   .header {
@@ -22,11 +23,14 @@
     justify-content: space-between;
     margin-bottom: 20px;
     margin-left: 10px;
+    height: 50px;
   }
   
   .title {
-    color: #e8bb49;
+    color: #ffca46;
     padding-left: 20px;
+    font-size: larger;
+    font-weight: bolder;
   }
   
   form {
@@ -38,24 +42,46 @@
     margin-bottom: 10px;
   }
   .form-section {
-    max-width: 70%;
-    margin-left: 15%;
+    margin-bottom: 25px;
+    max-width: 85%;
+    margin-left: 10%;
+    border: 1px solid #8c8383;
+    border-radius: 10px;
+    padding: 10px 20px 20px 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
-  .step-no{
-    width: 30px;
-    height: auto;
+  .Step_no{
+    width: 40px;
+    height: 38px;
     justify-content: center;
+    color: #8c8383;
     align-items: center;
     text-align: center;
-    border-radius: .5rem;
-    background-color: #e8bb49;
+    border-radius: 50%;
+    background-color: #ffca46;
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 750;
+    margin-bottom: 5px;
   }
   
+.account button{
+  width: 30px;
+  padding: 5px;
+  height: 30px;
+  border-radius: 50%;
+}
+.account button:hover{
+  width: 40px;
+  height: 40px;
+}
 
+.text-description{
+  padding-left: 30px;
+}
   .Inputs {
     display: block;
+    padding-left: 30px;
+    
   }
   .detail-input{
     width: 100%;
@@ -63,6 +89,16 @@
   }
   input{
     border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f5f5;
+  }
+  select{
+    width: 100%;
+    height: 40px;
+    color: #8c8383;
+    background-color: #f9f5f5;
   }
   
   .input-container {
@@ -99,7 +135,7 @@
   button {
     padding: 10px 20px;
     border: none;
-    background-color: #e8bb49;
+    background-color: #ffca46;
     color: #fff;
     border-radius: 4px;
     cursor: pointer;
@@ -107,7 +143,7 @@
   }
   
   button:hover {
-    background-color: #ba9435;
+    background-color: #ffca46;
   }
   .Outputs-button{
     justify-content: center;
@@ -141,3 +177,51 @@
     margin-bottom: 10px;
   }
   
+
+
+.checkbox-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+  flex-grow: 3;
+}
+
+.checkbox-container label{
+    display: inline;
+    align-items: center;
+    width: calc(50% - 10px);
+    gap: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+.popup-content .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}

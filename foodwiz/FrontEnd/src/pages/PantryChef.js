@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import Sidebar from '../components/Sidebar';
+import { UserContext } from '../components/UserContext'; // import the context
+import { useNavigate } from 'react-router-dom';
 import '../style/Chef.css';
 
 const PantryChef = () => {
@@ -20,10 +22,13 @@ const PantryChef = () => {
     pressureCooker: false,
   });
   const [showOutput, setShowOutput] = useState(false);
-  const [time, setTime] = useState(5);
+  const [time, setTime] = useState('');
   const [chefLevel, setChefLevel] = useState('Novice');
   const [generatedRecipe, setGeneratedRecipe] = useState(null);
-
+  const [showPopup, setShowPopup] = useState(false); // state for controlling the popup visibility
+  const { user, setUser } = useContext(UserContext); // use the context to get the user email
+  const navigate = useNavigate(); // hook for navigation
+  
   const handleToolChange = (tool) => {
     setTools((prevTools) => ({ ...prevTools, [tool]: !prevTools[tool] }));
   };
@@ -51,7 +56,8 @@ const PantryChef = () => {
       ingredients: ingredients.join(", "),
       name: "Example",
       minutes: time,
-      nutrition: "Example"
+      nutrition: "Example",
+      
     };
 
     try {
@@ -68,23 +74,38 @@ const PantryChef = () => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setUser(null);
+    navigate('/');
+  };
+
   return (
     <div className="chef-page">
       <Sidebar />
-
       <div className="chef-content">
         <div className="header">
           <div className="title">Pantry Chef</div>
-          <div className="account">Sign in</div>
+          <div className="account">
+            <button onClick={() => setShowPopup(true)}>A</button>
+          </div>
         </div>
+
+        {showPopup && (
+          <div className="popup">
+            <div className="popup-content">
+              <span className="close" onClick={() => setShowPopup(false)}>&times;</span>
+              <p>Email: {user.email}</p>
+              <button onClick={handleLogout}>Logout</button>
+            </div>
+          </div>
+        )}
 
         <form onSubmit={handleGenerateRecipe}>
           <div className="form-section">
             <div className="text">
-              <div className="step-no">1</div>
-              <div className="text-description">
-                What ingredients do you have?
-              </div>
+              <div className="Step_no">1</div>
+              <div className="text-description">What ingredients do you have?</div>
             </div>
             <div className="Inputs">
               <input
@@ -105,10 +126,8 @@ const PantryChef = () => {
 
           <div className="form-section">
             <div className="text">
-              <div className="step-no">2</div>
-              <div className="text-description">
-                What meal do you want to cook?
-              </div>
+              <div className="Step_no">2</div>
+              <div className="text-description">What meal do you want to cook?</div>
             </div>
             <div className="Inputs">
               <select value={meal} onChange={(e) => setMeal(e.target.value)}>
@@ -121,10 +140,8 @@ const PantryChef = () => {
 
           <div className="form-section">
             <div className="text">
-              <div className="step-no">3</div>
-              <div className="text-description">
-                What kitchen tools do you have?
-              </div>
+              <div className="Step_no">3</div>
+              <div className="text-description">What kitchen tools do you have?</div>
             </div>
             <div className="Inputs">
               <div className="checkbox-container">
@@ -145,10 +162,8 @@ const PantryChef = () => {
 
           <div className="form-section">
             <div className="text">
-              <div className="step-no">4</div>
-              <div className="text-description">
-                How much time do you have?
-              </div>
+              <div className="Step_no">4</div>
+              <div className="text-description">How much time do you have?</div>
             </div>
             <div className="Inputs">
               <input
@@ -163,10 +178,8 @@ const PantryChef = () => {
 
           <div className="form-section">
             <div className="text">
-              <div className="step-no">5</div>
-              <div className="text-description">
-                Are you a good chef?
-              </div>
+              <div className="Step_no">5</div>
+              <div className="text-description">Are you a good chef?</div>
             </div>
             <div className="Inputs">
               <select value={chefLevel} onChange={(e) => setChefLevel(e.target.value)}>
@@ -179,10 +192,8 @@ const PantryChef = () => {
 
           <div className="form-section">
             <div className="text">
-              <div className="step-no">6</div>
-              <div className="text-description">
-                Generate your Recipe.
-              </div>
+              <div className="Step_no">6</div>
+              <div className="text-description">Generate your Recipe.</div>
             </div>
             <div className="Outputs-button">
               <button type="submit">Generate Recipe</button>
@@ -193,14 +204,12 @@ const PantryChef = () => {
         {showOutput && generatedRecipe && (
           <div className="Output">
             <h3>{generatedRecipe.name}</h3>
-
             <h2>Ingredients</h2>
             <ol>
               {generatedRecipe.ingredients?.replace(/[\[\]']+/g, '').split(',').map((ingredient, index) => (
                 <li key={index}>{ingredient.trim()}</li>
               ))}
             </ol>
-
             <h2>Instructions</h2>
             <ol>
               {generatedRecipe.steps?.replace(/[\[\]']+/g, '').split(',').map((step, index) => (

@@ -1,15 +1,20 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useContext } from 'react';
+import axios from 'axios';
 import Sidebar from '../components/Sidebar';
+import { UserContext } from '../components/UserContext'; // import the context
+import { useNavigate } from 'react-router-dom';
 import '../style/Chef.css';
 
 const MasterChef = () => {
   const [showOutput, setShowOutput] = useState(false);
-  const [recipeName, setRecipeName] = useState("");
-  const [servings, setServings] = useState("");
-  const [time, setTime] = useState("");
-  const [skillLevel, setSkillLevel] = useState("Novice");
+  const [recipeName, setRecipeName] = useState('');
+  const [servings, setServings] = useState('');
+  const [time, setTime] = useState('');
+  const [skillLevel, setSkillLevel] = useState('Novice');
   const [generatedRecipe, setGeneratedRecipe] = useState(null);
+  const [showPopup, setShowPopup] = useState(false); // state for controlling the popup visibility
+  const { user, setUser } = useContext(UserContext); // use the context to get the user email
+  const navigate = useNavigate(); // hook for navigation
 
   const handleGenerateRecipe = async (e) => {
     e.preventDefault();
@@ -22,17 +27,19 @@ const MasterChef = () => {
 
     // Prepare data to be sent to the backend
     const requestData = {
-      tags: "Example",
-      ingredients: "Example",
+      tags: 'Example',
+      ingredients: 'Example',
       minutes: time,
       name: recipeName,
-      nutrition: "Example"
+      nutrition: 'Example',
+      
     };
 
     try {
-      const response = await axios.post('http://40.88.8.211:4000/api/recipes/recommend', requestData);
-      console.log(response.data);  // Debugging line
-      // Assuming response.data is an array, take the first element
+
+      const response = await axios.post('http://localhost:4000/api/recipes/recommend', requestData);
+      console.log(response.data); // Debugging line
+    // Assuming response.data is an array, take the first element
       if (response.data && response.data.length > 0) {
         setGeneratedRecipe(response.data[0]);
         setShowOutput(true);
@@ -44,6 +51,12 @@ const MasterChef = () => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setUser(null);
+    navigate('/');
+  };
+
   return (
     <div className="chef-page">
       <Sidebar />
@@ -51,13 +64,25 @@ const MasterChef = () => {
       <div className="chef-content">
         <div className="header">
           <div className="title">MasterChef</div>
-          <div className="account">Sign in</div>
+          <div className="account">
+            <button onClick={() => setShowPopup(true)}>A</button>
+          </div>
         </div>
 
-        <form>
+        {showPopup && (
+          <div className="popup">
+            <div className="popup-content">
+              <span className="close" onClick={() => setShowPopup(false)}>&times;</span>
+              <p>Email: {user.email}</p>
+              <button onClick={handleLogout}>Logout</button>
+            </div>
+          </div>
+        )}
+
+        <form onSubmit={handleGenerateRecipe}>
           <div className="form-section">
             <div className="text">
-              <div className="step-no">1</div>
+              <div className="Step_no">1</div>
               <div className="text-description">
                 Inspire MasterChef with your tastes or with a specific recipe.
               </div>
@@ -75,7 +100,7 @@ const MasterChef = () => {
 
           <div className="form-section">
             <div className="text">
-              <div className="step-no">2</div>
+              <div className="Step_no">2</div>
               <div className="text-description">
                 Select the amount of servings.
               </div>
@@ -93,7 +118,7 @@ const MasterChef = () => {
 
           <div className="form-section">
             <div className="text">
-              <div className="step-no">3</div>
+              <div className="Step_no">3</div>
               <div className="text-description">
                 Select how much time you have.
               </div>
@@ -111,7 +136,7 @@ const MasterChef = () => {
 
           <div className="form-section">
             <div className="text">
-              <div className="step-no">4</div>
+              <div className="Step_no">4</div>
               <div className="text-description">
                 Select your skill level.
               </div>
@@ -131,37 +156,36 @@ const MasterChef = () => {
 
           <div className="form-section">
             <div className="text">
-              <div className="step-no">5</div>
+              <div className="Step_no">5</div>
               <div className="text-description">
                 Generate your Recipe.
               </div>
             </div>
             <div className="Outputs-button">
-              <button type="button">Add Details</button>
-              <button onClick={handleGenerateRecipe}>Generate Recipe</button>
+              <button type="submit">Generate Recipe</button>
             </div>
           </div>
-
-          {showOutput && generatedRecipe && (
-            <div className="Output">
-              <h3>{generatedRecipe.name}</h3>
-
-              <h2>Ingredients</h2>
-              <ol>
-                {generatedRecipe.ingredients?.replace(/[\[\]']+/g, '').split(',').map((ingredient, index) => (
-                  <li key={index}>{ingredient.trim()}</li>
-                ))}
-              </ol>
-
-              <h2>Instructions</h2>
-              <ol>
-                {generatedRecipe.steps?.replace(/[\[\]']+/g, '').split(',').map((step, index) => (
-                  <li key={index}>{step.trim()}</li>
-                ))}
-              </ol>
-            </div>
-          )}
         </form>
+
+        {showOutput && generatedRecipe && (
+          <div className="Output">
+            <h3>{generatedRecipe.name}</h3>
+
+            <h2>Ingredients</h2>
+            <ol>
+              {generatedRecipe.ingredients?.replace(/[\[\]']+/g, '').split(',').map((ingredient, index) => (
+                <li key={index}>{ingredient.trim()}</li>
+              ))}
+            </ol>
+
+            <h2>Instructions</h2>
+            <ol>
+              {generatedRecipe.steps?.replace(/[\[\]']+/g, '').split(',').map((step, index) => (
+                <li key={index}>{step.trim()}</li>
+              ))}
+            </ol>
+          </div>
+        )}
       </div>
     </div>
   );
