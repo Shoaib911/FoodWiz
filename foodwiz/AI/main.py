@@ -5,7 +5,16 @@ from schemas import RecipeRequest, RecipeResponse  # Assuming these schemas are 
 
 app = FastAPI()
 
-
+@app.post("/recommend_recipe")
+async def recommendRecipe(recipe: RecipeRequest):
+    try:
+        print(recipe)
+        recommendations = recommend_recipe(
+            recipe.tags, recipe.ingredients, recipe.minutes, recipe.name, recipe.nutrition
+        )
+        return recommendations.to_dict(orient='records')
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/")
 async def root():
