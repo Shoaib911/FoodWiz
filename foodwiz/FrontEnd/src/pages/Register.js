@@ -45,7 +45,7 @@ const Register = () => {
 
       <p>or continue with email</p>
 
-      <form onSubmit={handleSubmit}>
+      <form className="Aform" onSubmit={handleSubmit}>
 
         <div className="form_group">
           <label htmlFor="username">Username</label>

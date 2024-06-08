@@ -51,12 +51,13 @@
 }
 
 .sidebar-nav a {
+  padding-left: 22px;
   text-decoration: none;
   color: #333;
 }
 
 .sidebar-nav a:hover {
-  background-color: #fbdf99;
+  background-color: #ffcd4d;
   border-radius: 5px;
 }
 

@@ -20,7 +20,7 @@ background-color: #f9f5f5;
   margin-top: 20px;
   width: 80%;
   font-size: 4.5em;
-  line-height: 65px;
+  line-height: 75px;
 }
 
 .about p{
@@ -36,7 +36,7 @@ background-color: #f9f5f5;
 
 .about_image img {
   width: 100%;
-  max-width: 500px; /* Adjust as necessary */
+  max-width: 400px; /* Adjust as necessary */
   height: auto;
   border-radius: 10px; /* Optional: add some rounding to the corners */
 }
@@ -57,7 +57,7 @@ background-color: #f9f5f5;
 }
 .features {
   background-color: #f9f5f5;
-  padding: 50px 0;
+  padding: 20px;
   text-align: center;
 }
 
@@ -72,19 +72,18 @@ background-color: #f9f5f5;
 }
 
 .feature-cards {
-  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .feature-card {
-  margin-top: 50px;
+  margin: 10px;
   background: #f9f5f5;
-  padding: 20px;
+  padding:  0px 20px 0px 20px;
   display: flex;
   align-items: center;
   width: calc(100% - 20px); /* Full width */
@@ -101,10 +100,10 @@ background-color: #f9f5f5;
 }
 .feature-content p{
   text-align: start;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .image-div{
-  
+  height: 400px;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -112,7 +111,6 @@ background-color: #f9f5f5;
 }
 .image-div img{
   width: 80%;
-  max-width: 500px; /* Adjust as necessary */
   height: auto;
   border-radius: 10px; /* Optional: add some rounding to the corners */
 }
@@ -150,7 +148,7 @@ background-color: #f9f5f5;
 }
 
 .testimonial {
-  background: #d8d4d4;
+  background: #f1eded;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   padding: 20px;

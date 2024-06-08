@@ -11,16 +11,16 @@ const PantryChef = () => {
   const [ingredientInput, setIngredientInput] = useState("");
   const [meal, setMeal] = useState('Lunch');
   const [tools, setTools] = useState({
-    stoveTop: false,
-    oven: false,
-    microwave: false,
-    airFryer: false,
-    sousVide: false,
-    blender: false,
-    foodProcessor: false,
-    bbq: false,
-    slowCooker: false,
-    pressureCooker: false,
+    StoveTop: false,
+    Oven: false,
+    Microwave: false,
+    AirFryer: false,
+    SousVide: false,
+    Blender: false,
+    FoodProcessor: false,
+    Bbq: false,
+    SlowCooker: false,
+    PressureCooker: false,
   });
   const [showOutput, setShowOutput] = useState(false);
   const [time, setTime] = useState('');

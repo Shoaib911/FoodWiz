@@ -15,7 +15,7 @@
 .About h1{
     width: 80%;
     font-size: 4.5em;
-    line-height: 65px;
+    line-height: 75px;
 }
 
 .About p{
@@ -24,15 +24,23 @@
 }
 .about_img{
     width: 50%;
+    
+}
+.about_img img{
+  max-height: 400px;
+  max-width: 400px;
+
 }
 .Primary_text{
     color: #faca50;
 }
 .Steps{
-    margin-top: 100px;
+    margin-top: 50px;
 
 }
 .step-container{
+  min-height: 200px;
+  margin-bottom: 15px;
     margin-left: 20px;
     display: flex;
     height: fit-content;
@@ -47,7 +55,7 @@
     background-color: #faca50;
     font-size: 1.5rem;
     font-weight: bold;
-    color: #949393;
+    color: #f6efef;
 }
 .text_box{
     width: 50%;
@@ -55,6 +63,7 @@
     padding-right: 30px;
 }
 .text_box p{
+  margin: 0;
     text-align: start;
     color: #949393;
 }
@@ -65,7 +74,7 @@
 
 .input-demo-div{
     width:50%;
-    padding-top: 50px;
+    justify-items: center;
     margin: 0 auto;
     margin-bottom: 10px;
     
@@ -74,7 +83,7 @@
 
 }
 .Input-Demo-div{
-  padding-top: 50px;
+  justify-content: center;
   width:50%;
   align-items: start;
 }
@@ -87,10 +96,15 @@
 
 
 .input-demo-div input{
+  border-color: #ffcd4f;
     width: 150px;
     height: 30px;
 }
+.input-demo-div input[type="checkbox"]{
+  width:50px;
+}
 .input-demo-div select{
+  border-color: #ffcd4f;
     height: 30px;
     width :200px;
 }
@@ -116,8 +130,9 @@
   .input_group {
     width: 175px;
     display: flex;
+  
     align-items: center;
-    border: 1px solid #ccc;
+    border: 1px solid #ffe48d;
     padding: 5px;
     border-radius: 4px;
   }
@@ -125,6 +140,7 @@
   .input_group input {
     border: none;
     outline: none;
+    margin-bottom: 0;
     padding: 5px;
     margin-right: 10px;
     width: 100px;
@@ -152,7 +168,9 @@
 
 }
 button.Add-button{
-  height: 30px;
+  padding: 10px;
+  font-weight: bold;
+   height: 30px;
     width: min-content;
     background: #ffcd4f;
 }
@@ -168,7 +186,6 @@ button.delete-button{
 
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
     margin : 10px 10px 10px 40px;
     width: 100%; /* Set a fixed width for the container */
     flex-grow: 2; /* Allow the container to grow vertically */
@@ -178,9 +195,6 @@ button.delete-button{
     color: #949393;
     display: flex;
     align-items: center;
-    gap: 5px;
-    
-    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     width: calc(50% - 10px); /* Set width for each checkbox label, accounting for gap */
@@ -189,6 +203,8 @@ button.delete-button{
 button.output-button{
     margin-top: 100px;
     width: 180px;
+    font-weight: bolder;
+    font-size: medium;
     background: #faca50;
 
 }

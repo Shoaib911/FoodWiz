@@ -53,7 +53,7 @@ const Login = ({ setIsAuthenticated }) => {
       </div>
       <h2>Login</h2>
       {message && <p>{message}</p>}
-      <form onSubmit={handleSubmit}>
+      <form className="Aform" onSubmit={handleSubmit}>
         <div className="form_group">
           <label htmlFor="email">Email:</label>
           <input 

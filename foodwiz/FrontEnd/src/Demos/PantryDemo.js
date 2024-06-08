@@ -75,18 +75,7 @@ const PantryDemo = () => {
               </div>
 
               <div className="ingredient-list">
-                <span className="ingredient">
-                Cheese
-                  <button className="delete-button">X</button>
-                  </span>
-                  <span className="ingredient">
-                  Avocado
-                  <button className="delete-button">X</button>
-                  </span>
-                  <span className="ingredient">
-                  Bread
-                  <button className="delete-button">X</button>
-                  </span>
+
                   {ingredients.map((item, index) => (
                   <span className="ingredient" key={index}>
                     {item}
