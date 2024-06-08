@@ -4,6 +4,7 @@ import Sidebar from '../components/Sidebar';
 import { UserContext } from '../components/UserContext'; // import the context
 import { useNavigate } from 'react-router-dom';
 import '../style/Chef.css';
+import Loader from '../components/loader'; // Import the Loader component
 
 const PantryChef = () => {
   const [ingredients, setIngredients] = useState([]);
@@ -26,19 +27,24 @@ const PantryChef = () => {
   const [chefLevel, setChefLevel] = useState('Novice');
   const [generatedRecipe, setGeneratedRecipe] = useState(null);
   const [showPopup, setShowPopup] = useState(false); // state for controlling the popup visibility
+  const [loading, setLoading] = useState(false); // state for loader
   const { user, setUser } = useContext(UserContext); // use the context to get the user email
   const navigate = useNavigate(); // hook for navigation
-  
+
   const handleToolChange = (tool) => {
     setTools((prevTools) => ({ ...prevTools, [tool]: !prevTools[tool] }));
   };
 
-  const handleAddIngredient = (e) => {
-    e.preventDefault();
-    if (ingredientInput) {
-      setIngredients([...ingredients, ingredientInput]);
-      setIngredientInput('');
+  const handleAddIngredient = () => {
+    if (ingredientInput.trim()) {
+      setIngredients([...ingredients, ingredientInput.trim()]);
+      setIngredientInput("");
     }
+  };
+
+  const handleDeleteIngredient = (index) => {
+    const newIngredients = ingredients.filter((_, i) => i !== index);
+    setIngredients(newIngredients);
   };
 
   const handleGenerateRecipe = async (e) => {
@@ -49,6 +55,8 @@ const PantryChef = () => {
       return;
     }
 
+    setLoading(true); // show loader
+
     const selectedTools = Object.keys(tools).filter(tool => tools[tool]);
 
     const requestData = {
@@ -57,20 +65,28 @@ const PantryChef = () => {
       name: "Example",
       minutes: time,
       nutrition: "Example",
-      
     };
 
+    const delay = new Promise(resolve => setTimeout(resolve, 3000));
+
     try {
-      const response = await axios.post('http://40.88.8.211:4000/api/recipes/recommend', requestData);
-      console.log(response.data);  // Debugging line
-      if (response.data && response.data.length > 0) {
-        setGeneratedRecipe(response.data[0]);
+      const response = await Promise.all([
+        axios.post('http://localhost:4000/api/recipes/recommend', requestData),
+        delay
+      ]);
+
+      const recipeData = response[0].data;
+      console.log(recipeData);  // Debugging line
+      if (recipeData && recipeData.length > 0) {
+        setGeneratedRecipe(recipeData[0]);
         setShowOutput(true);
       } else {
         console.error('No recipe data received');
       }
     } catch (error) {
       console.error('Error generating recipe:', error);
+    } finally {
+      setLoading(false); // hide loader
     }
   };
 
@@ -80,9 +96,14 @@ const PantryChef = () => {
     navigate('/');
   };
 
-  
   return (
     <div className="chef-page">
+      
+      {loading && (
+        <div className="loader-container">
+          <Loader/>
+          </div>)
+      }
       <Sidebar />
       <div className="chef-content">
         <div className="header">
@@ -118,9 +139,12 @@ const PantryChef = () => {
               />
               <button type="button" onClick={handleAddIngredient}>Add Ingredient</button>
               <ul>
-                {ingredients.map((ingredient, index) => (
-                  <li key={index}>{ingredient}</li>
-                ))}
+              {ingredients.map((ingredient, index) => (
+                <li key={index}>
+                  {ingredient}
+                  <button className="delete_button" onClick={() => handleDeleteIngredient(index)}>X</button>
+                </li>
+              ))}
               </ul>
             </div>
           </div>
@@ -172,7 +196,15 @@ const PantryChef = () => {
                 type="number"
                 placeholder="5 minutes"
                 value={time}
-                onChange={(e) => setTime(e.target.value)}
+                onChange={(e) => {
+                  const inputValue = e.target.value;
+                  if (/^\d+$/.test(inputValue) && parseInt(inputValue) > 0) {
+                    setTime(parseInt(inputValue));
+                  } else if (inputValue === '') {
+                    // Allow clearing the input
+                    setTime('');
+                  }
+                }}
               />
             </div>
           </div>
@@ -197,7 +229,7 @@ const PantryChef = () => {
               <div className="text-description">Generate your Recipe.</div>
             </div>
             <div className="Outputs-button">
-              <button type="submit">Generate Recipe</button>
+              <button type="submit" disabled={loading}>Generate Recipe</button>
             </div>
           </div>
         </form>

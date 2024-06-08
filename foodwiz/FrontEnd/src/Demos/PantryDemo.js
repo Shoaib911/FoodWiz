@@ -45,7 +45,8 @@ const PantryDemo = () => {
         </div>
         
         
-<div className="Steps">
+      <div className="Steps">
+        
           <div className="step-container">
             <div className="text_box">
               <div className="step-no">1</div>

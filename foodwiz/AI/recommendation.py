@@ -30,7 +30,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import make_pipeline
 
 # Load the dataset
-df = pd.read_csv("C:\\Users\\sufik\\OneDrive\\Documents\\GitHub\\FoodWiz\\foodwiz\\RAW_recipes.csv")
+df = pd.read_csv("C:\\Users\\Administrator\\Desktop\\Shoaib\\FoodWiz\\foodwiz\\RAW_recipes.csv")
 
 # Handle missing values
 df = df.dropna(subset=['tags', 'ingredients', 'minutes', 'name', 'nutrition'])

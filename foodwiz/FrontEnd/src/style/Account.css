@@ -96,6 +96,19 @@ p a {
 p a:hover {
   text-decoration: underline;
 }
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8); /* Optional background overlay */
+  z-index: 1000;
+}
 @media screen and (max-width: 600px) {
   .account-container{
     max-width: 90%;
@@ -110,3 +123,6 @@ p a:hover {
 
   }
 }
+
+
+

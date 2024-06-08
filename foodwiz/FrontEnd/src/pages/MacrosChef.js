@@ -4,6 +4,7 @@ import '../style/Chef.css';
 import Sidebar from '../components/Sidebar';
 import { UserContext } from '../components/UserContext'; // import the context
 import { useNavigate } from 'react-router-dom';
+import Loader from '../components/loader'; // Import the Loader component
 
 const MacrosChef = () => {
   const [showOutput, setShowOutput] = useState(false);
@@ -13,6 +14,7 @@ const MacrosChef = () => {
   const [meal, setMeal] = useState('');
   const [generatedRecipe, setGeneratedRecipe] = useState(null);
   const [showPopup, setShowPopup] = useState(false); // state for controlling the popup visibility
+  const [loading, setLoading] = useState(false); // state for loader
   const { user, setUser } = useContext(UserContext); // use the context to get the user email
   const navigate = useNavigate(); // hook for navigation
 
@@ -25,6 +27,8 @@ const MacrosChef = () => {
       return;
     }
 
+    setLoading(true); // show loader
+
     // Prepare data to be sent to the backend
     const requestData = {
       tags: meal,
@@ -35,7 +39,7 @@ const MacrosChef = () => {
     };
 
     try {
-      const response = await axios.post('http://40.88.8.211:4000/api/recipes/recommend', requestData);
+      const response = await axios.post('http://localhost:4000/api/recipes/recommend', requestData);
       console.log(response.data);  // Debugging line
       if (response.data && response.data.length > 0) {
         setGeneratedRecipe(response.data[0]);
@@ -45,6 +49,8 @@ const MacrosChef = () => {
       }
     } catch (error) {
       console.error('Error generating recipe:', error);
+    } finally {
+      setLoading(false); // hide loader
     }
   };
 
@@ -132,10 +138,16 @@ const MacrosChef = () => {
               </div>
             </div>
             <div className="Outputs-button">
-              <button type="submit">Generate Recipe</button>
+              <button type="submit" disabled={loading}>Generate Recipe</button>
             </div>
           </div>
         </form>
+
+        {loading && (
+          <div className="loader-container">
+            <Loader/>
+          </div>
+        )}
 
         {showOutput && generatedRecipe && (
           <div className="Output">

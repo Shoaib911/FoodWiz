@@ -4,6 +4,7 @@ import Sidebar from '../components/Sidebar';
 import { UserContext } from '../components/UserContext'; // import the context
 import { useNavigate } from 'react-router-dom';
 import '../style/Chef.css';
+import Loader from '../components/loader'; // Import the Loader component
 
 const MasterChef = () => {
   const [showOutput, setShowOutput] = useState(false);
@@ -13,6 +14,7 @@ const MasterChef = () => {
   const [skillLevel, setSkillLevel] = useState('Novice');
   const [generatedRecipe, setGeneratedRecipe] = useState(null);
   const [showPopup, setShowPopup] = useState(false); // state for controlling the popup visibility
+  const [loading, setLoading] = useState(false); // state for loader
   const { user, setUser } = useContext(UserContext); // use the context to get the user email
   const navigate = useNavigate(); // hook for navigation
 
@@ -25,6 +27,8 @@ const MasterChef = () => {
       return;
     }
 
+    setLoading(true); // show loader
+
     // Prepare data to be sent to the backend
     const requestData = {
       tags: 'Example',
@@ -36,10 +40,9 @@ const MasterChef = () => {
     };
 
     try {
-
       const response = await axios.post('http://localhost:4000/api/recipes/recommend', requestData);
       console.log(response.data); // Debugging line
-    // Assuming response.data is an array, take the first element
+      // Assuming response.data is an array, take the first element
       if (response.data && response.data.length > 0) {
         setGeneratedRecipe(response.data[0]);
         setShowOutput(true);
@@ -48,6 +51,8 @@ const MasterChef = () => {
       }
     } catch (error) {
       console.error('Error generating recipe:', error);
+    } finally {
+      setLoading(false); // hide loader
     }
   };
 
@@ -111,7 +116,15 @@ const MasterChef = () => {
                 type="number"
                 placeholder="Number of servings"
                 value={servings}
-                onChange={(e) => setServings(e.target.value)}
+                onChange={(e) => {
+                  const inputValue = parseInt(e.target.value);
+                  if (!isNaN(inputValue) && inputValue > 0) {
+                    setServings(inputValue);
+                  } else if (e.target.value === '') {
+                    // Allow clearing the input
+                    setServings('');
+                  }
+                }}
               />
             </div>
           </div>
@@ -129,7 +142,15 @@ const MasterChef = () => {
                 type="number"
                 placeholder="Time"
                 value={time}
-                onChange={(e) => setTime(e.target.value)}
+                onChange={(e) => {
+                  const inputValue = parseInt(e.target.value);
+                  if (!isNaN(inputValue) && inputValue > 0) {
+                    setTime(inputValue);
+                  } else if (e.target.value === '') {
+                    // Allow clearing the input
+                    setTime('');
+                  }
+                }}
               />
             </div>
           </div>
@@ -162,10 +183,16 @@ const MasterChef = () => {
               </div>
             </div>
             <div className="Outputs-button">
-              <button type="submit">Generate Recipe</button>
+              <button type="submit" disabled={loading}>Generate Recipe</button>
             </div>
           </div>
         </form>
+
+        {loading && (
+          <div className="loader-container">
+            <Loader/>
+          </div>
+        )}
 
         {showOutput && generatedRecipe && (
           <div className="Output">

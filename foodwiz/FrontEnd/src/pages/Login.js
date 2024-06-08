@@ -4,11 +4,13 @@ import axios from 'axios';
 import '../style/Account.css';
 import logo from '../assets/images/logo.png';
 import { UserContext } from '../components/UserContext';
+import Loader from '../components/loader'; // Import the Loader component
 
 const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext); 
 
@@ -17,24 +19,38 @@ const Login = ({ setIsAuthenticated }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    const loginPromise = new Promise(async (resolve, reject) => {
+      try {
+        const response = await axios.post('http://localhost:4000/api/users/login', { email, password });
+        localStorage.setItem('token', response.data.token);
+        setIsAuthenticated(true);
+        setUser({ email });
+        resolve(response.data.message);
+      } catch (error) {
+        reject(error.response.data.message);
+      }
+    });
+
+    const delay = new Promise((resolve) => setTimeout(resolve, 3000));
+
     try {
-      const response = await axios.post('http://40.88.8.211:4000/api/users/login', { email, password });
-      localStorage.setItem('token', response.data.token);
-      setIsAuthenticated(true);
-      setUser({ email });
+      const [loginResult] = await Promise.all([loginPromise, delay]);
+      setMessage(loginResult);
       navigate('/PantryChef');
-      setMessage(response.data.message);
-    } catch (error) {
-      setMessage(error.response.data.message);
+    } catch (errorMessage) {
+      setMessage(errorMessage);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="account-container">
       <div className="loogo">
-            <img src={logo} alt="Logo" className="loogo-image" />
-            <h1>Food<span className="Primary-text">Wiz</span></h1>
-          </div>
+        <img src={logo} alt="Logo" className="loogo-image" />
+        <h1>Food<span className="Primary-text">Wiz</span></h1>
+      </div>
       <h2>Login</h2>
       {message && <p>{message}</p>}
       <form onSubmit={handleSubmit}>
@@ -58,11 +74,16 @@ const Login = ({ setIsAuthenticated }) => {
             required 
           />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" disabled={loading}>Login</button>
       </form>
       <p>
         Don't have an account? <Link to="/Register">Register here</Link>
       </p>
+      {loading && (
+        <div className="loader-container">
+          <Loader/>
+          </div>)
+      }
     </div>
   );
 };
