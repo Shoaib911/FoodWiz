@@ -45,25 +45,25 @@ const MacrosDemo = () => {
                 MacrosChef will craft the prefect recipe that achieve your macronutrients goal!
                 </p>
             </div>
-            <div className="input-demo-div">
+            <div className="Input-Demo-div">
             
             <div className="input_container">
               
-                <label >Carbs:</label>
+                <span >Carbs:</span>
                 <div className="input_group">
                   <input type="text" placeholder="20"  />
                   <span>grams</span>
                 </div>
               </div>
               <div className="input_container">
-                <label>Protein:</label>
+                <span>Protein:</span>
                 <div className="input_group">
                   <input type="text" placeholder="20"  />
                   <span>grams</span>
                 </div>
               </div>
               <div className="input_container">
-                <label>Fat:</label>
+                <span>Fat:</span>
                 <div className="input_group">
                   <input type="text" placeholder="20"  />
                   <span>grams</span>

@@ -80,6 +80,7 @@ const PantryChef = () => {
     navigate('/');
   };
 
+  
   return (
     <div className="chef-page">
       <Sidebar />

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import logo from '../assets/images/logo.png';
 import '../style/Account.css';
 
 
@@ -33,6 +34,10 @@ const Register = () => {
   return (
 
     <div className="account-container">
+      <div className="loogo">
+            <img src={logo} alt="Logo" className="loogo-image" />
+            <h1>Food<span className="Primary-text">Wiz</span></h1>
+          </div>
       <h2>Create an account</h2>
 
       {message && <p>{message}</p>}

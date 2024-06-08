@@ -21,7 +21,7 @@ const Footer = () => {
           <div className="footer-column">
             <h3>About Us</h3>
             <ul>
-              <li><a href="/Blog">Blog</a></li>
+              <li><Link to="/Blog">Blog</Link></li>
               <li><a href="/Contact">Contact</a></li>
             </ul>
           </div>
@@ -29,8 +29,8 @@ const Footer = () => {
           <div className="footer-column">
             <h3>Follow Us</h3>
             <ul>
-              <li><a href="https://instagram.com">Instagram</a></li>
-              <li><a href="https://twitter.com">Twitter</a></li>              
+              <li><a href="/insta">Instagram</a></li>
+              <li><a href="/twitter">Twitter</a></li>              
             </ul>
           </div>
 

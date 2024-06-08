@@ -27,7 +27,7 @@ header {
 }
 
 .logo-image {
-  margin-right: 10px; /* Adjust size as needed */
+  margin-right: -10px; /* Adjust size as needed */
   width: 60px; /* Decrease logo size */
   height: auto;
 }

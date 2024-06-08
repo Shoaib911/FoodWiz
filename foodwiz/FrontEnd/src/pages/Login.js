@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../style/Account.css';
+import logo from '../assets/images/logo.png';
 import { UserContext } from '../components/UserContext';
 
 const Login = ({ setIsAuthenticated }) => {
@@ -30,6 +31,10 @@ const Login = ({ setIsAuthenticated }) => {
 
   return (
     <div className="account-container">
+      <div className="loogo">
+            <img src={logo} alt="Logo" className="loogo-image" />
+            <h1>Food<span className="Primary-text">Wiz</span></h1>
+          </div>
       <h2>Login</h2>
       {message && <p>{message}</p>}
       <form onSubmit={handleSubmit}>

@@ -61,7 +61,7 @@ const Home = () => {
               <p>Generate customized recipes based on your specific macronutrient goals and dietary restrictions.</p>
               <p>Say goodbye to the guesswork of meal preparation and enjoy perfectly balanced, nutritious meals every day with MacrosChef.</p>
               <br></br>
-              <Link to="/MacrosChefDemo" className="cta-button">Discover MacrosChef</Link>
+              <Link to="/MacrosDemo" className="cta-button">Discover MacrosChef</Link>
             </div>
             <div className='image-div'>
                <img src={macro} alt="MacrosChef" />
@@ -81,7 +81,7 @@ const Home = () => {
                 <p>Say goodbye to endless Googling for the perfect recipe. Masterchef’s helps you find the specific recipe you’re looking for, modify it based on your dietary requirements, or generate a new recipe based on your cravings. With Masterchef, you'll have access to personalized, healthy, and delicious recipes that fit your lifestyle.</p>
                 <p>Cook smarter, not harder with Masterchef.</p>
                 <br></br>
-              <Link to="/MasterChefDemo" className="cta-button">Discover Master Chef</Link>
+              <Link to="/MasterDemo" className="cta-button">Discover Master Chef</Link>
             </div>
           </div>
         </div>

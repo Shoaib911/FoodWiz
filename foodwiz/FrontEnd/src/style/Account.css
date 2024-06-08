@@ -8,6 +8,21 @@
   text-align: center;
 }
 
+.loogo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-left: 18%;
+  margin-right: 20%;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.loogo-image {
+  margin-right: -10px; /* Adjust size as needed */
+  width: 60px; /* Decrease logo size */
+  height: auto;
+}
 
 .account-container h2 {
   margin-bottom: 20px;
@@ -17,7 +32,7 @@
 .google-signin {
   width: 100%;
   padding: 10px;
-  background-color: #edc55e;
+  background-color: #faca50;
   color: white;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -27,7 +42,7 @@
 }
 
 .google-signin:hover {
-  background-color: #c59c35;
+  background-color: #c99e32;
 }
 
 form p {
@@ -57,7 +72,7 @@ form p {
 .get-started {
   width: 100%;
   padding: 10px;
-  background-color: #e8bb49;
+  background-color: #faca50;
   color: white;
   border: none;
   border-radius: 5px;
@@ -74,10 +89,24 @@ p {
 }
 
 p a {
-  color: #e8bb49;
+  color: #faca50;
   text-decoration: none;
 }
 
 p a:hover {
   text-decoration: underline;
+}
+@media screen and (max-width: 600px) {
+  .account-container{
+    max-width: 90%;
+  }
+  p{
+    max-width: 90%;
+  }
+  .loogo{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+  }
 }

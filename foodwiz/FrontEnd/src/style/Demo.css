@@ -1,3 +1,7 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 .container{
     display: flex;
 }
@@ -22,7 +26,7 @@
     width: 50%;
 }
 .Primary_text{
-    color: #e8bb49;
+    color: #faca50;
 }
 .Steps{
     margin-top: 100px;
@@ -31,7 +35,7 @@
 .step-container{
     margin-left: 20px;
     display: flex;
-    height: 350px;
+    height: fit-content;
 }
 .step-no{
     width: 30px;
@@ -40,7 +44,7 @@
     align-items: center;
     text-align: center;
     border-radius: .5rem;
-    background-color: #f4be34;
+    background-color: #faca50;
     font-size: 1.5rem;
     font-weight: bold;
     color: #949393;
@@ -61,15 +65,26 @@
 
 .input-demo-div{
     width:50%;
+    padding-top: 50px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    
     text-align: center;
-    align-items: center;
-    justify-content: center;
+    
+
+}
+.Input-Demo-div{
+  padding-top: 50px;
+  width:50%;
+  align-items: start;
 }
 .input-wrapper {
-    margin : 20px 50px 0px 50px;
+    margin : 20px 50px 10px 50px;
     display: flex;
+    padding-left: 20%;
     gap: 20px;
 }
+
 
 .input-demo-div input{
     width: 150px;
@@ -90,10 +105,12 @@
 .input_container {
     margin-bottom: 15px;
     padding-left: 200px;
-    
+    align-items: start;
   }
-  .input_container label{
+
+  .input_container span{
     width: 50px;
+    
     color: #595757;
   }
   .input_group {
@@ -120,6 +137,7 @@
     margin :100px;
 }
 .ingredient-list {
+  
     display: flex;
     flex-wrap: wrap;
     gap: 10px;   
@@ -130,10 +148,13 @@
     border: 0.5px solid #b8b6b6;
     height: min-content;
     border-radius: 5px;
+    
+
 }
 button.Add-button{
+  height: 30px;
     width: min-content;
-    background: #e8bb49;
+    background: #ffcd4f;
 }
 button.delete-button{
     width: min-content;
@@ -168,7 +189,7 @@ button.delete-button{
 button.output-button{
     margin-top: 100px;
     width: 180px;
-    background: #e8bb49;
+    background: #faca50;
 
 }
 .Output {
@@ -203,10 +224,14 @@ button.output-button{
 }
   .About h1{
     padding-right: 10px;
-    max-width: 90%;
+    width: 100%;
+    
     text-align: start;
     font-size: 2.6rem;
+    word-wrap: break-word;
     line-height:55px;
+
+
   }
 
   .step-container{
@@ -214,6 +239,7 @@ button.output-button{
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+    height: fit-content;
   }
   .text_box{
     height: 80%;
@@ -223,16 +249,31 @@ button.output-button{
 
 .input-demo-div{
   width: 100%;
-  height: 4rem;
   margin-bottom: 10px;
+  padding-left: 0;
+  padding-top: 5px;
+  height: max-content;
+  text-align: start;
+  
 }
 
   .input-wrapper {
     margin: 20px 0;
     display: flex;
+    align-items: center; 
+    padding-left: 0;
     
   }
+  .input-demo-div input {
+    flex: 1; /* Allow input to grow and fill available space */
+  }
+  .input_container{
+    padding-left: 0;
+  }
 
+  .input-demo-div button {
+    flex-shrink: 0; /* Prevent button from shrinking */
+  }
   .ingredient-list {
     flex-direction: column;
     align-items: center;
@@ -243,7 +284,9 @@ button.output-button{
     margin: 20px auto;
   }
   .utensil-options {
-    margin: 20px 10px;
+    width: 100%;
+    margin-left: 5px;
+    margin-right: -1px;
   }
 
   .Output {
