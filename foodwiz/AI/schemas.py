@@ -1,5 +1,4 @@
 from pydantic import BaseModel
-from typing import List, Optional
 
 class RecipeRequest(BaseModel):
     tags: str
@@ -12,4 +11,3 @@ class RecipeResponse(BaseModel):
     name: str
     ingredients: str
     steps: str
-
