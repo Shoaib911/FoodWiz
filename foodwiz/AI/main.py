@@ -1,14 +1,13 @@
 from typing import Any, Dict
 from fastapi import FastAPI, HTTPException
-from recommendation import recommend_recipe  # Assuming this module is correctly implemented
-from schemas import RecipeRequest, RecipeResponse  # Assuming these schemas are defined
+from recommendation import recommend_recipe  # Ensure recommendation.py is in the same directory or properly imported
+from schemas import RecipeRequest, RecipeResponse
 
 app = FastAPI()
 
 @app.post("/recommend_recipe")
 async def recommendRecipe(recipe: RecipeRequest):
     try:
-        print(recipe)
         recommendations = recommend_recipe(
             recipe.tags, recipe.ingredients, recipe.minutes, recipe.name, recipe.nutrition
         )
@@ -18,7 +17,6 @@ async def recommendRecipe(recipe: RecipeRequest):
 
 @app.get("/")
 async def root():
-    print("Hello, Python")
     return {"message": "Hello, Python"}
 
 if __name__ == "__main__":
