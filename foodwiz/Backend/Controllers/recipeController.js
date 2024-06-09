@@ -76,7 +76,7 @@ const getRecommendations = async (req, res) => {
     const { tags, ingredients, minutes, name, nutrition } = req.body;
 
     try {
-        const response = await axios.post('http://127.0.0.1:8000/recommend_recipe', {
+        const response = await axios.post("http://127.0.0.1:8000/recommend_recipe", {
             tags,
             ingredients,
             minutes,
